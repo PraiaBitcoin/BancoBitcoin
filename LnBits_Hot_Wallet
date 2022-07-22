@@ -1,0 +1,19 @@
+### Configuração da HotWallet LNBits - Suporte e Automatizações
+- [ ] Na página inicial da interface de gerenciamento do myNode, localize LnBits e clique em Open
+- [ ] Crie uma carteira LNBits e Salve o Link da Carteira no gerenciador de senhas
+- [ ] Em `Manage Extensions`, ative o `LndHub` 
+- [ ] Abaixo de 'LndHub' clique em `Open`
+- [ ] Salve a Admin URL no gerenciador de senhas
+- [ ] Importe esta carteira em sua Bluewallet, escaneando o QR Code Admin URL em 'Adicionar Carteira', 'Importar Carteira' na Bluewallet.
+
+### Configuração do Formulário de Suporte via LNBits
+- [ ] Volte ao Manage Extensions
+- [ ] Ative o LnSupport (1): Receba sats pagos para responder a perguntas. Cobrar pessoas por palavra para entrar em contato com você. Receberá notificações no Telegram a cada mensagem através do Bot do 'Balance Of Satoshis'.
+
+	- [ ] Clique em 'NEW FORM' (2) para criar o formulário de Suporte
+	- [ ] Em 'Wallet' selecione a carteira, em 'Form Name' coloque 'Solicitação de Suporte' 
+	- [ ] Em Description, insira o seguinte texto 
+Descreva qual seu problema, forneça um telefone de contato ou e-mail, pague a fatura lightning que será mostrada e receba uma resposta em até 48h. 1 sat por palavra.
+	- [ ] Em 'Amount per word' coloque '1' e clique em Create Form
+	- [ ] Salve o link do formulário em 'Form' para utilizar mais tarde (3)
+	- [ ] Em Tickets (4) aparecerão as mensagens 
