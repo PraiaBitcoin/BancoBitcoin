@@ -1,8 +1,11 @@
 # Banco Padrão Bitcoin & LND no Laptop
-Conectado à internet, com um Laptop ou Desktop reciclado, iremos rodar um Banco de Bitcoin Experimental com um capital inicial de 0.01 BTC, utilizando o myNodeBTC Premium com Bitcoin Core, Lightning, Electrum e LnBits para permitir que uma comunidade possa iniciar seu processo de adoção do padrão bitcoin, utilizando uma infraestrutura simples e confiável.
+Com um Laptop reciclado conectado à internet, iremos rodar um Banco de Bitcoin Experimental com um capital inicial de 0.01 BTC, utilizando o myNodeBTC Premium com Bitcoin Core, Lightning, Electrum e LnBits para permitir que uma pessoa possa iniciar o processo de adoção do padrão bitcoin, utilizando uma infraestrutura simples e confiável.
 
-O serviço hospedado no conforto da sua casa ou empresa e viável economicamente para uso pessoal, familiar ou comunitário. 
+O serviço hospedado no conforto da sua casa ou empresa, é recomendado para famílias ou pequenas comunidades. No diagrama abaixo, podemos observar como funciona a implementação Bitcoin e Lighning de baixo custo, a qual você aprenderá a instalar e administrar com ajuda deste guia:
 
+![Diagrama da Solução Experimental do Banco Padrão Bitcoin](images/image01.png)
+
+>IMPORTANTE: Se você é um usuário novato, ou com pouca experiência em gestão de servidores ou TI, considere executar os passos do **Guia de Segurança Operacional para operadores de nós Bitcoin** desenvolvido para aumentar a segurança da sua implementação
 
 ## Como Funciona
 O operador do nó, ou seja, o dono do servidor, gerencia os serviços oferecidos através de uma série de ferramentas de código aberto que estão integradas a rede do Bitcoin e Lightning, instaladas em um laptop com a cópia da blockchain. 
@@ -10,17 +13,17 @@ O operador do nó, ou seja, o dono do servidor, gerencia os serviços oferecidos
 A experiência dos usuários conectados ao nó local utilizando uma carteira lightning através do aplicativo BlueWallet, é como se abrissem uma contra corrente BTC (sem precisarem se identificar), usufruíssem de toda infraestrutura do “Banco Bitcoin” para receber e enviar pagamentos, sem se preocupar com os canais que fornecem a liquidez.
 
 O plugin de contas lightning é controlado pela LNBits usando a extensão LndHub, permite que um grupo de usuários crie contas diferentes com apenas um nó em uma configuração de confiança minimizada. Além disso, utilizamos também o Electrum Server, para garantir uma implementação completa também para carteiras on-chain sem custódia.
- 
-No diagrama abaixo, podemos observar como funciona a solução experimental, a qual você aprenderá a implementar neste guia:
 
-![Diagrama da Solução Experimental do Banco Padrão Bitcoin](images/image01.png)
+Vamos lá?
 
-
+![Primeiros nós da Praia Bitcoin](images/image04.jpg)
 
 
+# Guia Passo a Passo
 
-## 1 - Pré-requisitos
-### 1.1 - Escolhendo os Equipamentos do Servidor
+
+
+## 1 - Escolhendo os Equipamentos do Servidor
 Na fase inicial da sua implementação, qualquer equipamento disponível, talvez possa servir. 
 
 Nesta etapa é importante entender o funcionamento das ferramentas e depois de entendê-las, você poderá migrar para o ambiente ideal que couber no seu bolso conforme a evolução de seu experimento.  
@@ -33,16 +36,16 @@ Caso não possua nenhum equipamento disponível e necessite adquirir um equipame
   * Raspberry Pi 4 com 8GB de memória RAM 
   * Cpu Desktop I7 8gb Ram Ssd 120gb
 
-Em Jericoacoara, sem um nobreak que funcionasse adequadamente, desisti de rodar o servidor em um Desktop e acabei utilizando um Laptop Dell i7 com 8GB de RAM com duas horas de bateria.  
-
-Além do dispositivo principal, você precisará de 2 discos:
+Além do dispositivo principal, você precisará de:
   * 1 SSD para o Sistema Operacional de no mínimo 32gb.
-  * 1 SSD externo de 1TB para o armazenamento do blockchain. 
+  * 1 SSD externo de 1TB para o armazenamento do blockchain.
+  * 1 pendrive para Backup Local
+  * 1 conta no Google Drive para Backup na nuvem
 
-Prefira hardwares de marcas confiáveis e de preferência novos para evitar dores de cabeça.
+Prefira hardwares de marcas confiáveis e de preferência novos para evitar dores de cabeça. 
 
  
-### 1.2 - Escolhendo o Software da Distribuição
+## 3 - Escolhendo o Software da Distribuição
 Existem diversas distribuições similares rodando com a mesma finalidade, sendo possível migrar facilmente a sua carteira lightning para qualquer uma delas e rodar o seu nó onde quiser, mas a base do sistema sempre será a mesma. 
 
 ![Exemplos de distribuições](images/image03.png)
@@ -52,18 +55,20 @@ Todas as ferramentas dos clientes Bitcoin & Lighning acima, utilizam Debian, Bit
 Neste guia iremos utilizar a distribuição MyNodeBtc, devido sua facilidade de uso e suporte premium.  
 
  
-### 1.3 - O local e a internet
-  *	Encontre um local para instalar o Servidor que tenha certa segurança e esteja protegido.
-  *	Providencie assim que possível, um nobreak de 1500va pode ajudar em caso de queda de energia, ou uma bateria de carro estacionária com um inversor. 
-  *	Solicite uma conexão de cortesia com IP Fixo para o provedor de Internet local ou configure um DNS dinâmico  
-  * Monte os equipamentos de modo que fiquem protegidos e fixados. Colá-los com gotas de cola quente poderá ajudar a prevenir acidentes. 
-  *	Utilizar um Rack com chave e ventilação, pode aumentar um pouco a segurança contra roubo e prevenir acidentes. 
-  *	Em localidades muito quentes, um ventilador USB ou normal pode ser necessário para resfriar o equipamento, principalmente durante a sincronização da blockchain
-  *	Adquira um kit básico de ferramentas (multímetro, chaves de fenda e Philips pequenas, alicate, fita isolante) que pode ser necessário para fazer reparos emergenciais ou mexer nas instalações.
-  *	Verifique com o multímetro se a energia elétrica é estável. Se não for, será necessário consertar isso para evitar futuros problemas de hardware. 
-  *	Evite gambiarras dentro do possível.
+## 4 - O local e a internet
+  - [ ] Encontre um local para instalar o Servidor que tenha certa segurança e esteja protegido.
+  - [ ] Providencie assim que possível, um nobreak de 1500va pode ajudar em caso de queda de energia, ou uma bateria de carro estacionária com um inversor. 
+  - [ ] Solicite uma conexão de cortesia com IP Fixo para o provedor de Internet local ou configure um DNS dinâmico  
+  - [ ] Monte os equipamentos de modo que fiquem protegidos e fixados. Colá-los com gotas de cola quente poderá ajudar a prevenir acidentes. 
+  - [ ] Utilizar um Rack com chave e ventilação, pode aumentar um pouco a segurança contra roubo e prevenir acidentes. 
+  - [ ] Em localidades muito quentes, um ventilador USB ou normal pode ser necessário para resfriar o equipamento, principalmente durante a sincronização da blockchain
+  - [ ] Adquira um kit básico de ferramentas (multímetro, chaves de fenda e Philips pequenas, alicate, fita isolante) que pode ser necessário para fazer reparos emergenciais ou mexer nas instalações.
+  - [ ] Verifique com o multímetro se a energia elétrica é estável. Se não for, será necessário consertar isso para evitar futuros problemas de hardware. 
+  - [ ] Evite gambiarras dentro do possível.
+  
+
  
-## 2 - Configurações do Servidor
+## 6 - Configurações do Servidor
 
 ### 2.1 - Preparação da Imagem do Sistema Operacional
 Durante o período experimental, vamos usar uma imagem pronta para o sistema operacional, gravada diretamente no disco de um laptop reciclado, a fim de oferecer uma maior confiabilidade do hardware e uma instalação mais simples possível
