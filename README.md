@@ -109,34 +109,37 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
 
 ### 1.4 - Configurações da Ligning
 
-  - [ ] Crie a carteira Ligtning
-  - [ ] Utilizando este [modelo](#) altere o LND.conf e aguarde o reinicio
-  - [ ] Deposite 0.01 bitcoin para a carteira do nó
-  - [ ] 
-  - [ ] Na Interface do myNode ative o RTL
-  - [ ] No RTL abra canais com os seguintes nós:
-  	- [ ] Praia Bitcoin - Brasil 250000 SATs
-  	- [ ] Praia Bitcoin - Jericoacoara  200000 SATs 
-  	- [ ] Praia Bitcoin - Natal 200000 SATs
-  	- [ ] Lightning.Watch - 10000 SATS
-  	
-  - [ ] Verifique o nó na 1ml e na Amboss
-  - [ ] Compre inbound liquidity na LnBig.com
+#### Criação da Carteira Lightning
+Execute os passos abaixo para criar a carteira Lightning associada ao nó:
 
->Não recomendamos conectar a carteira principal do nó ao seu smartphone
+  - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em ` Create Wallet` 
+  - [ ] Na página `Lightning Status` clique em `Create Wallet`
+  - [ ] Em `Create Lightning Wallet` `Wallet Seed` anote as palavras geradas no seu gerenciador de senhas e guarde uma cópia offline em um pendrive armazenado de forma segunra ou em um cofre.
+  - [ ] Em `Re-enter Wallet Seed` insira as palavras da carteira criada e clique em `Create`
+  - [ ] Aguarde o carregamento da página `Wallet Created`
 
-### 1.5 - Ativando as outras aplicações do MyNodeBTC
-
-Após a sincronização estar concluida e fazer login, abra o browser e acesse a na página inicial da interface do MynodeBtc em `http://localhost` e ative as aplicações abaixo:
-  - [ ] **Electrum Server**: Ele irá sincronizar informações adicionais da blockchain para oferecer os dados para o Explorer e uma conexão dos usuários que configurarem o servidor Electrum da sua implementação. 
-  - [ ] **LnBits** para que os usuários vips do nó, possam criar carteiras com funcionalidades adicionais e receberem os encaminhamentos de pagamento 
-  - [ ] **Explorer**: Explorador da blockchain 
-  - [ ] **Mempool**: acompanhamento em tempo real do estado da blockchain
- 
->Algumas aplicações requerem reinício do nó. Tenha paciência!
+>VÍDEO DE EXEMPLO: [Criando a Carteira da Lightning no myNodeBTC](https://youtu.be/qft4T76Dqtk).
 
 
+#### Altere o arquivo de Configurações da Ligntning
+Altere as configurações da Lightning para iniciar o serviço
+ 
+  - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em ` Wallet` 
+  - [ ] Na página `Lightning Status` na aba `Lightning`, em `Config, clique em `view/edit` 
+  - [ ] Apague todo conteúdo do arquivo, mas mantenha o endereço do domínio do TOR em `tlsextradomain=` 
+  - [ ] Abra este [modelo do lnd.conf](lnd.conf) e copie para área de transferência
+  - [ ] Volte ao editor do `lnd.conf` e cole o conteúdo do arquivo
+  - [ ] Faça as alterações nos campos 
+   	- `alias=NOME_DO_SERVIDOR`
+   	- `tlsextradomain=SEU_DOMINIO_DO_TOR.ONION`
+   	- `tlsextraip=SEU_IP_EXTERNO`
+   	- `externalip=SEU_IP_EXTERNO`
+   - [ ] Clique em `Save Config`
+  
+>VÍDEO DO PROCEDIMENTO: [Alterando o LND.conf no myNodeBTC](https://youtu.be/wb-2scoZ2PI).
 
+>DICA: Dependendo das configurações e modelo do seu roteador, pode ser que precise fazer outras alterações em seu lnd.conf. Consulte o grupo do NodeRunners Brasil no telegram para obter ajuda. 
+  
 ## 2 Finalizando as Configurações
 
 ### 2.1 Configuração do Roteador
@@ -153,6 +156,18 @@ Após a sincronização estar concluida e fazer login, abra o browser e acesse a
     	- [ ] ElectrumServer: 50002:50002 
 
 >Se não estiver usando um IP fixo externo, configure um serviço de DNS dinâmico, se esta opção estiver disponível em seu roteador.
+
+### 1.5 - Ativando as outras aplicações do MyNodeBTC
+Após fazer login e a sincronização da blockchain for concluida, abra o browser e acesse a na página inicial da interface do MynodeBtc em `http://localhost` e ative as aplicações abaixo clicando em `Enable`:
+  - [ ] **RTL**: Interface para administrar a Carteira Lightning associada ao nó
+  - [ ] **Electrum Server**: Ele irá sincronizar informações adicionais da blockchain para oferecer os dados para o Explorer e uma conexão dos usuários que configurarem o servidor Electrum da sua implementação. 
+  - [ ] **LndHub** Criar carteiras Lightning simples com controle pelo smartphone através da Bluewallet 
+  - [ ] **LnBits** Criar carteiras Lightning com funcionalidades  controle por interface web, via API, ou pelo smartphone através da Bluewallet 
+  - [ ] **Explorer**: Explorador da blockchain 
+  - [ ] **Mempool**: acompanhamento em tempo real do estado da blockchain
+ 
+>VÍDEO DO PROCEDIMENTO: [Ativando as aplicações do Banco Bitcoin](https://youtu.be/ZTd5tyv9Wf4)
+
 
 ### 2.2 Registre um domínio.
   - [ ] Utilize o GoDaddy ou o Name.com.  
@@ -293,57 +308,57 @@ Gere uma chave de criptografia GPG associada ao e-mail criado e ao nome do exper
 
 
 
-#Instalação script de Backup
-Instale o script de Backup, rodando os comandos no terminal
-```
-sudo su
-cd /home/admin/
-git clone https://github.com/PraiaBitcoin/MyNodeBTC-Backup
-cd MyNodeBTC-Backup
-gpg -k user@protonmail.com
-```
+##2.8 Instalação script de Backup
+Instale o script de Backup criado para fazer backups regulares e enviar para o google drive
+  
+  - [ ] Rode os comandos no terminal
+	```
+	sudo su
+	cd /home/admin/
+	git clone https://github.com/PraiaBitcoin/MyNodeBTC-Backup
+	cd MyNodeBTC-Backup
+	gpg -k seuemail@protonmail.com
+	```
+  - [ ] Copie seu ID e altere o arquivo  
+  	
+	```
+	nano .config 
+	**PUBLIKEY=”seu_id_entre_aspas”
+	PASSWORD=Sua_Senha_da__Assinatura_GPG**
+	```
+	- [ ] No arquivo já consta o ID da Bitcoin Beach Brazil. Substitua pelo
+	seu ID.
+	- [ ] Em Password “Insira a senha da sua chave privada”. 
 
-Copie seu ID
-```
-nano .config 
-```
+  - [ ] Após alterar o arquivo, salve e execute os últimos dois comandos
+	```
+	chmod 755 install.sh
+	sudo ./install.sh
+	```
 
-```
-PUBLIKEY=”seu_id_entre_aspas”
-PASSWORD=Sua_Senha_da__Assinatura_GPG
-```
 
-No arquivo já consta o ID da Bitcoin Beach Brazil. Substitua pelo
-seu ID.  Em Password “Insira a senha da sua chave privada”. 
+### Lista de Comandos do Serviço de Backup
+	>Comando para verificar o status do serviço
+	```
+	sudo systemctl status backupmynode.service
+	```
 
-Após alterar o arquivo, salve e execute os últimos dois comandos
-```
-chmod 755 install.sh
-sudo ./install.sh
-```
+	>Comando para verificar o status do timer
+	```
+	sudo systemctl status backupmynode.timer
+	```
 
-PRINT
-●	Comando para verificar o status do serviço
-```
-sudo systemctl status backupmynode.service
-```
+	>Comando para executar um backup manualmente 
+	```
+	sudo /home/admin/scripts/MyNodeBTC-Backup/backupmynode.sh
+	```
 
-●	Comando para verificar o status do timer
-```
-sudo systemctl status backupmynode.timer
-```
-
-●	Comando para executar um backup manualmente 
-```
-sudo /home/admin/scripts/MyNodeBTC-Backup/backupmynode.sh
-```
-
-●	Verifique se o arquivo foi criptografado
-```
-sudo su
-cd /mnt/hdd/BACKUP
-gpg -d nomedoarquivo.tar.asc > nomedearquivosdesaida.tar
-```
+	>Verifique se o arquivo foi criptografado
+	```
+	sudo su
+	cd /mnt/hdd/BACKUP
+	gpg -d nomedoarquivo.tar.asc > nomedearquivosdesaida.tar
+	```
 
 ●	Verifique os arquivos criados descompactando-os
 ```
@@ -451,6 +466,24 @@ Depois disso, iremos transferir os dados da blockchain e das aplicações para o
 #Passo a Passo - Configurando os backups
 
 
+
+
+
+
+#### Transfira fundos para carteira do Nó
+
+  - [ ] Deposite 0.01 bitcoin para a carteira do nó
+  - [ ] Na Interface do myNode ative o RTL
+  - [ ] No RTL abra canais com os seguintes nós:
+  	- [ ] Praia Bitcoin - Brasil 250000 SATs
+  	- [ ] Praia Bitcoin - Jericoacoara  200000 SATs 
+  	- [ ] Praia Bitcoin - Natal 200000 SATs
+  	- [ ] Lightning.Watch - 10000 SATS
+  	
+  - [ ] Verifique o nó na 1ml e na Amboss
+  - [ ] Compre inbound liquidity na LnBig.com
+
+>Não recomendamos conectar a carteira principal do nó ao seu smartphone
 
 
 
