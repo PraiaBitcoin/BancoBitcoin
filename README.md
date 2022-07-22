@@ -1,4 +1,4 @@
-# Banco BTC & LND no Laptop
+# Banco Padrão Bitcoin & LND no Laptop
 Solução bancária experimental, usando MyNodeBTC Premium com Bitcoin Core, Lightning, Electrum e LnBits
 
 Conectado à internet, com um Laptop ou Desktop reciclado, processador Intel i5, 8GB de RAM, 1 HD SSD de 120gb, 1 HD SSD externo de 1TB, iremos rodar um Banco de Bitcoin hospedado em casa para seu uso pessoal começando com um capital inicial de 0.01 BTC. 
@@ -6,8 +6,8 @@ Conectado à internet, com um Laptop ou Desktop reciclado, processador Intel i5,
 No diagrama abaixo, podemos observar como funciona a solução experimental utilizada em Jericoacoara, a qual você aprenderá a implementar nos próximos capítulos:
 
  
+![Diagrama da Solução Experimental do Banco Padrão Bitcoin](images/image01.png)
 
-Diagrama da Solução Experimental do Banco Padrão Bitcoin. 
 
 A experiência dos usuários conectados ao nó local utilizando uma carteira lightning na BlueWallet, é como se abrissem uma contra corrente (sem precisarem se identificar), usufruíssem de toda infraestrutura do “Banco Bitcoin” para receber e enviar pagamentos, sem se preocupar com os canais que fornecem a liquidez.
 
