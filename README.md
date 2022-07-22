@@ -3,7 +3,23 @@ Solução bancária experimental, usando MyNodeBTC Premium com Bitcoin Core, Lig
 
 Conectado à internet, com um Laptop ou Desktop reciclado, processador Intel i5, 8GB de RAM, 1 HD SSD de 120gb, 1 HD SSD externo de 1TB, iremos rodar um Banco de Bitcoin hospedado em casa para seu uso pessoal começando com um capital inicial de 0.01 BTC. 
 
-Considere ler o guia de segurança operacional e código de conduta antes de começar. 
+No diagrama abaixo, podemos observar como funciona a solução experimental utilizada em Jericoacoara, a qual você aprenderá a implementar nos próximos capítulos:
+
+ 
+
+Diagrama da Solução Experimental do Banco Padrão Bitcoin. 
+
+A experiência dos usuários conectados ao nó local utilizando uma carteira lightning na BlueWallet, é como se abrissem uma contra corrente (sem precisarem se identificar), usufruíssem de toda infraestrutura do “Banco Bitcoin” para receber e enviar pagamentos, sem se preocupar com os canais que fornecem a liquidez.
+
+O operador do nó, gerencia o serviço através de uma série de ferramentas de código aberto que estão integradas a rede do Bitcoin e Lightning, instaladas em um laptop com a cópia da blockchain. O plugin de contas lightning é controlado pelo LNDhub , permite que um grupo de usuários crie contas diferentes com apenas um nó em uma configuração de confiança minimizada.
+
+ 
+Diagrama de Funcionamento do LNDHub. Fonte: Bluewallet
+
+O usuário envia uma transação para um endereço de recarga (onchain) dedicado e esse saldo é adicionado à sua conta no LNDhub. Em seguida, o usuário pode usar esse saldo para pagar as faturas do Lightning, ou simplesmente usar a carteira para receber pagamentos. Como as interações entre os usuários dependem de QR codes e no Brasil, a tecnologia foi popularizada com uso do PIX, os usuários podem fazer transações financeiras com tarifas baixíssimas e preservando sua privacidade usando bitcoin através da lightning.
+
+A arquitetura da solução implementada em Jericoacoara, permite que mesmo com poucos recursos disponíveis, uma comunidade possa iniciar seu processo de adoção do padrão bitcoin utilizando uma infraestrutura simples, relativamente fácil de se administrar e viável economicamente. 
+
 
 
 
