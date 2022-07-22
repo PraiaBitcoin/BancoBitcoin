@@ -1,162 +1,189 @@
 # Banco Padrão Bitcoin & LND no Laptop
 Com um Laptop reciclado conectado à internet, iremos rodar um Banco de Bitcoin Experimental com um capital inicial de 0.01 BTC, utilizando o myNodeBTC Premium com Bitcoin Core, Lightning, Electrum e LnBits para permitir que uma pessoa possa iniciar o processo de adoção do padrão bitcoin, utilizando uma infraestrutura simples e confiável.
 
-O serviço hospedado no conforto da sua casa ou empresa, é recomendado para famílias ou pequenas comunidades. No diagrama abaixo, podemos observar como funciona a implementação Bitcoin e Lighning de baixo custo, a qual você aprenderá a instalar e administrar com ajuda deste guia:
+O serviço pode ser hospedado no conforto da sua casa e é recomendado para famílias, micro-empresas ou pequenas comunidades. 
 
-![Diagrama da Solução Experimental do Banco Padrão Bitcoin](images/image01.png)
+![Primeiros nós da Praia Bitcoin](images/image04.jpg)
 
->IMPORTANTE: Se você é um usuário novato, ou com pouca experiência em gestão de servidores ou TI, considere executar os passos do **Guia de Segurança Operacional para operadores de nós Bitcoin** desenvolvido para aumentar a segurança da sua implementação
+
 
 ## Como Funciona
 O operador do nó, ou seja, o dono do servidor, gerencia os serviços oferecidos através de uma série de ferramentas de código aberto que estão integradas a rede do Bitcoin e Lightning, instaladas em um laptop com a cópia da blockchain. 
 
 A experiência dos usuários conectados ao nó local utilizando uma carteira lightning através do aplicativo BlueWallet, é como se abrissem uma contra corrente BTC (sem precisarem se identificar), usufruíssem de toda infraestrutura do “Banco Bitcoin” para receber e enviar pagamentos, sem se preocupar com os canais que fornecem a liquidez.
 
+No diagrama abaixo, podemos observar como funciona a implementação Bitcoin e Lighning de baixo custo, a qual você aprenderá a instalar e administrar com ajuda deste guia:
+
+![Diagrama da Solução Experimental do Banco Padrão Bitcoin](images/image01.png)
+
+
 O plugin de contas lightning é controlado pela LNBits usando a extensão LndHub, permite que um grupo de usuários crie contas diferentes com apenas um nó em uma configuração de confiança minimizada. Além disso, utilizamos também o Electrum Server, para garantir uma implementação completa também para carteiras on-chain sem custódia.
 
-Vamos lá?
-
-![Primeiros nós da Praia Bitcoin](images/image04.jpg)
 
 
 # Guia Passo a Passo
+Nesta etapa inicial de sua imersão na toca do coelho, o importante é entender o funcionamento das ferramentas e para depois pensar em migrar para o ambiente ideal que couber no seu bolso.  
 
+>IMPORTANTE: Antes de iniciar a instalação, considere ler o **Guia de Segurança Operacional para Operadores de Nós Bitcoin** desenvolvido para aumentar a segurança da sua implementação.
+ 
+> Algumas ferramentas estão apenas em inglês, mas esperamos para que elas estejam acessíveis em Português - Brasileiro futuramente. 
+ 
+## Escolhendo os Equipamentos do Servidor
+Qualquer equipamento disponível poderá servir para sua aprendizagem, mas um **laptop com processador i3, i5 ou i7, com no mínimo 8gb de RAM e bateria funcionando**, certamente é a solução mais viável economicamente e que apresentou melhor custo benefício. 
 
-
-## 1 - Escolhendo os Equipamentos do Servidor
-Na fase inicial da sua implementação, qualquer equipamento disponível, talvez possa servir. 
-
-Nesta etapa é importante entender o funcionamento das ferramentas e depois de entendê-las, você poderá migrar para o ambiente ideal que couber no seu bolso conforme a evolução de seu experimento.  
-
-![Entenda a diferença das implementações](images/image02.png)
-
-Caso não possua nenhum equipamento disponível e necessite adquirir um equipamento usado ou novo, você pode considerar as seguintes opções com excelente custo-benefício e praticamente na mesma faixa de preço:
-
-  * Laptop Dell i3, i5 ou i7, com 8gb de RAM
-  * Raspberry Pi 4 com 8GB de memória RAM 
-  * Cpu Desktop I7 8gb Ram Ssd 120gb
-
+Você tambem pode utilizar um Raspberry Pi 4 ou computador Desktop PC ou Mac, ou a opção mais comoda, o [myNodeOne](https://mynodebtc.com/products/one) que já vem com o software pré-instalado, por $426 dólares +impostos.
+  
 Além do dispositivo principal, você precisará de:
-  * 1 SSD para o Sistema Operacional de no mínimo 32gb.
-  * 1 SSD externo de 1TB para o armazenamento do blockchain.
-  * 1 pendrive para Backup Local
-  * 1 conta no Google Drive para Backup na nuvem
+  - [ ] 1 SSD ou cartão SD Extreme para o Sistema Operacional de no mínimo 32gb.
+  - [ ] 1 SSD externo de 1TB para o armazenamento do blockchain.
+  - [ ] 1 pendrive para Backup Local
+  - [ ] 1 conta no Google Drive para Backup na nuvem
+  - [ ] 1 nobreak para proteger seus equipamentos contra surtos elétricos.
+  - [ ] 1 conexão com a internet e roteador
+ 
+>Prefira hardwares de marcas confiáveis e de preferência com pouco uso para evitar dores de cabeça. 
 
-Prefira hardwares de marcas confiáveis e de preferência novos para evitar dores de cabeça. 
-
- 
-## 3 - Escolhendo o Software da Distribuição
-Existem diversas distribuições similares rodando com a mesma finalidade, sendo possível migrar facilmente a sua carteira lightning para qualquer uma delas e rodar o seu nó onde quiser, mas a base do sistema sempre será a mesma. 
-
-![Exemplos de distribuições](images/image03.png)
-
-Todas as ferramentas dos clientes Bitcoin & Lighning acima, utilizam Debian, Bitcoin Core, Lightning, Specter, Lnbits, BtcPayServer, LndHub, RTL e Electrum. Todos esses softwares são código aberto e estão sob a licença MIT, que significa que basicamente qualquer um pode usá-los, sem qualquer restrição e sem garantias, porém o pacote das distribuições podem ter licenças diferentes que podem ter algumas restrições.
-
-Neste guia iremos utilizar a distribuição MyNodeBtc, devido sua facilidade de uso e suporte premium.  
 
  
-## 4 - O local e a internet
+## O local e a internet
   - [ ] Encontre um local para instalar o Servidor que tenha certa segurança e esteja protegido.
   - [ ] Providencie assim que possível, um nobreak de 1500va pode ajudar em caso de queda de energia, ou uma bateria de carro estacionária com um inversor. 
   - [ ] Solicite uma conexão de cortesia com IP Fixo para o provedor de Internet local ou configure um DNS dinâmico  
   - [ ] Monte os equipamentos de modo que fiquem protegidos e fixados. Colá-los com gotas de cola quente poderá ajudar a prevenir acidentes. 
   - [ ] Utilizar um Rack com chave e ventilação, pode aumentar um pouco a segurança contra roubo e prevenir acidentes. 
   - [ ] Em localidades muito quentes, um ventilador USB ou normal pode ser necessário para resfriar o equipamento, principalmente durante a sincronização da blockchain
-  - [ ] Adquira um kit básico de ferramentas (multímetro, chaves de fenda e Philips pequenas, alicate, fita isolante) que pode ser necessário para fazer reparos emergenciais ou mexer nas instalações.
-  - [ ] Verifique com o multímetro se a energia elétrica é estável. Se não for, será necessário consertar isso para evitar futuros problemas de hardware. 
-  - [ ] Evite gambiarras dentro do possível.
-  
+
+>Evite gambiarras o máximo possível.
+
+>Se pensar em hardware não é para você, é possível instalar a distribuição do myNodeBtc na [DigitalOcean](https://digitalocean.com) fazendo o upload de uma imagem personalizada do sistema para criação de um droplet para as aplicações rodarem na nuvem em uma infraestrutura terceirizada, custando aproximadamente $80 dolares por mês. 
 
  
-## 6 - Configurações do Servidor
+ ## Escolhendo o Software da Distribuição
+Existem diversas distribuições similares rodando com a mesma finalidade, sendo possível migrar facilmente a sua carteira lightning para qualquer uma delas e rodar o seu nó onde quiser, mas a base do sistema sempre será a mesma. 
 
-### 2.1 - Preparação da Imagem do Sistema Operacional
+Todas as ferramentas dos clientes Bitcoin & Lighning abaixo, utilizam Debian, Bitcoin Core, Lightning, Specter, Lnbits, BtcPayServer, LndHub, RTL e Electrum. Todos esses softwares são código aberto e estão sob a licença MIT, que significa que basicamente qualquer um pode usá-los, sem qualquer restrição e sem garantias.
+
+![Exemplos de distribuições](images/image03.png)
+
+>Neste guia iremos utilizar a distribuição MyNodeBtc, devido sua facilidade de uso e suporte premium.  
+ 
+![Exemplos de distribuições](images/image05.png)
+ 
+## Configurações do Servidor
+
+### 1.1 - Preparação da Imagem do Sistema Operacional
 Durante o período experimental, vamos usar uma imagem pronta para o sistema operacional, gravada diretamente no disco de um laptop reciclado, a fim de oferecer uma maior confiabilidade do hardware e uma instalação mais simples possível
 
-  *	Para gravar a imagem no SSD (min 32gb) do Sistema Operacional, insira o disco SSD em uma gaveta externa USB e conecte-a a estação de trabalho.
-  *	Baixe a imagem do Cliente do Bitcoin [Versão MyNodeBTC 2.5.5 amd64](https://mynodebtc.com/device/mynode_images/mynode_amd64_0-2-55_uefi.img.gz)
-
-  *	Instale o Balena Etcher https://www.balena.io/etcher/
-  *	Após instalar, rode o programa e selecione a imagem clicando em “Flash from file”
-  *	Selecione a imagem baixada mynode_amd64_0-2-55_uefi.img.gz  e clique em “Ok” 
-  *	Clique em Select Target e selecione o disco de destino. 
-  *	Tenha certeza de que selecionou o disco certo, ignore o alerta, clique em flash e aguarde a gravação.
-  *	Desligue o computador e remova o disco com segurança.
+  - [ ] Insira o disco SSD destinado ao sistema operacional em uma gaveta externa USB e conecte-a a estação de trabalho.
+  - [ ] Baixe a imagem do Cliente do Bitcoin [Versão MyNodeBTC 2.5.5 amd64](https://mynodebtc.com/device/mynode_images/mynode_amd64_0-2-55_uefi.img.gz)
+  - [ ] Instale o Balena Etcher https://www.balena.io/etcher/
+  - [ ] Após instalar, rode o programa e selecione a imagem clicando em `Flash from file`
+  - [ ] Selecione a imagem baixada `mynode_amd64_0-2-55_uefi.img.gz` e clique em `Ok`
+  - [ ] Clique em `Select Target` e selecione o disco de destino. 
+  - [ ] Tenha certeza de que selecionou o disco certo, ignore o alerta, clique em `Flash` e aguarde a gravação.
+  - [ ] Desligue o computador e remova o disco com segurança.
   
   
-### 2.1 - Instalação do Hardware
-  * Abra a parte traseira do Laptop e instale o SSD que gravou na porta SATA principal.  
-    * Geralmente, essa porta é utilizada para o sistema operacional, porém, caso tenha uma porta SATA extra você pode deixar a porta principal para o SSD da Blockchain de 1tb por ser mais segura, e a outra para o sistema operacional. Isto só será possível, caso o Laptop possua drive de CD/DVD. Você precisará removê-lo e comprar um cabo adaptador SATA 22 pinos 7+15 para 13 pinos 7+6 F/m. Desta forma, poderá para usar a entrada SATA interna e não a conexão usb, para conectar o drive. 
-  * Caso não seja possível usar a porta SATA adicional, conecte o case do SSD Externo com a Blockchain ao laptop com um cabo confiável na porta USB 2.0 ou 3.0. Evite utilizar a gaveta mais barata e tente selar a conexão USB cuidadosamente com uma pistola de cola quente, ou uma fita isolante, pode evitar que o cabo se solte ou fique frouxo, caso isso, aconteça dados poderão ser corrompidos.  
-  * Conecte o laptop ou PC por cabo de rede ao seu roteador da internet dedicada ao nó, ou no roteador secundário.
-  * Evite utilizar conexões wi-fi, apenas em último caso, quando seja impossível fazer de outra maneira ou não tiver acesso ao roteador. Neste caso, é importante proteger o seu Wi-fi  com uma senha forte, e utilizar os outros computadores da rede, na rede de convidados. 
-  * Caso não possua acesso ao roteador, você poderá rodar o nó, porém sem utilizar um IP público, apenas pela rede TOR. 
-  * Caso o laptop não possua uma entrada de rede, será necessário comprar um dispositivo de rede usb para fazer este trabalho. 
-  * Altere a sequência de boot na BIOS para inicializar pelo SSD correto e aguarde a inicialização.
+### 1.2 - Instalação do Hardware
+  - [ ] Abra a parte traseira do Laptop
+  - [ ] Instale o SSD que gravou na porta SATA principal.  
+  - [ ] Conecte ao laptop o SSD Externo de 1TB com um cabo USB de boa qualidade.
+  - [ ] Altere a sequência de boot na BIOS para inicializar pelo SSD com o sistema operacional e aguarde a inicialização.
 
-### 2.2 - Iniciando o myNodeBtc
-  * Faça login com o usuário “admin” senha padrão “bolt”, aguarde o início do navegador. 
-  *	No browser que será carregado automaticamente, digite a senha ‘bolt’ para abrir a interface de gerenciamento
-  *	Caso o SSD externo de 1tb esteja conectado, o myNode solicitará para formatar o disco.
-  *	Após a formatação, vá em settings e altere a senha padrão bolt
-  * Registre a nova senha em seu gestor de senhas ou em local seguro.
-  *	Ainda em Settings, desative o Tor para acelerar o processo e aguarde o reinício.
+![Adaptador SATA e Lan USB](images/image06.jpg)
 
-
-### 2.3 - Ativando as outras aplicações do MyNodeBTC
-Na página inicial da interface do MynodeBtc . Algumas aplicações requerem reinício do nó. Tenha paciência!
-  *	Ative a RTL (Ride the Lightning): Uma interface prática que controla as carteiras do servidor. 
-  *	Ative o Electrum Server. Ele irá sincronizar informações adicionais da blockchain para oferecer os dados para o Explorer e uma conexão dos usuários que configurarem o servidor Electrum da sua implementação. 
-  *	Ative a LnBits para que os usuários vips do nó, possam criar carteiras com funcionalidades adicionais e receberem os encaminhamentos de pagamento 
-  *	Ative o Explorer para fornecer um explorador da blockchain em sua implementação
-  *	Ative o Mempool para fornecer um acompanhamento em tempo real do estado da blockchain
- 
+>DICA: Caso o Laptop possua drive de CD/DVD, remova o drive, compre um cabo adaptador SATA 22 pinos 7+15 para 13 pinos 7+6 F/m, e use a entrada SATA do CD para conectar o drive SSD do sistma operacional e o drive SSD do blockchain na entrada SATA principal.
  
-### 2.4 Configuração do Roteador
-  *	Descubra como acessar a interface do seu roteador. 
-  *	Altere a senha padrão do roteador.
-  *	Desabilite a administração remota pela web.
-  *	É altamente recomendável que desative o wi-fi para reduzir a superfície de ataque. 
-  *	Desative o DMZ se estiver ativado (apenas utilize o DMZ se estiver utilizando dois roteadores, nunca ative o DMZ no roteador conectado direto ao nó)
-  *	Ative o firewall e a proteção anti-ddos. Não ative a opção  ping-da-morte. 
-  *	Se possível atribua um IP LAN Fixo do Servidor linkado ao seu MAC ADDRESS 
-  *	Se não estiver usando um IP fixo externo, configure um serviço de DNS dinâmico, se esta opção estiver disponível em seu roteador.
-  *	Redirecione as portas que serão ativadas 
-    *	Lnd: 9735:9735
-    *	Serviços (MemPol, Explorer, LnBits): 443 -> 49393 (Remap)
-    *	ElectrumServer: 50002:50002 
+>IMPORTANTE: Evite utilizar conexões wi-fi, apenas em último caso, quando seja impossível fazer de outra maneira ou não tiver acesso ao roteador.
+>Caso não possua acesso ao roteador, você poderá rodar o nó com algumas limitações apenas pela rede TOR. 
+
+### 1.3 - Iniciando o myNodeBtc
+  - [ ] Faça login com o usuário `admin`, senha `bolt` e aguarde o início do navegador. 
+  - [ ] No browser que será carregado automaticamente, digite a senha ‘bolt’ para abrir a interface de gerenciamento
+  - [ ] Caso o SSD externo de 1tb esteja conectado, o myNode solicitará para formatar o disco.
+  - [ ] Após a formatação, vá em settings e altere a senha padrão
+  - [ ] Registre a nova senha em seu gestor de senhas ou em local seguro.
+  - [ ] Ainda em Settings, desative o Tor para acelerar o processo e aguarde o reinício.
+
+>A sincronização pode demorar alguns dias. Tenha paciência pois as aplicações só serão liberadas após a finalização do processo de sincronização. 
+
+### 1.4 - Configurações da Ligning
+
+  - [ ] Crie a carteira Ligtning
+  - [ ] Utilizando este [modelo](#) altere o LND.conf e aguarde o reinicio
+  - [ ] Deposite 0.01 bitcoin para a carteira do nó
+  - [ ] Na Interface do myNode ative o RTL
+  - [ ] No RTL abra canais com os seguintes nós:
+  	- [ ] Praia Bitcoin - Brasil 250000 SATs
+  	- [ ] Praia Bitcoin - Jericoacoara  200000 SATs 
+  	- [ ] Praia Bitcoin - Natal 200000 SATs
+  	- [ ] Lightning.Watch - 10000 SATS
+  	
+  - [ ] Verifique o nó na 1ml e na Amboss
+
+>Não recomendamos conectar a carteira principal do nó ao seu smartphone
+
+### 1.5 - Ativando as outras aplicações do MyNodeBTC
+
+Após a sincronização estar concluida e fazer login, abra o browser e acesse a na página inicial da interface do MynodeBtc em `http://localhost` e ative as aplicações abaixo:
+  - [ ] **Electrum Server**: Ele irá sincronizar informações adicionais da blockchain para oferecer os dados para o Explorer e uma conexão dos usuários que configurarem o servidor Electrum da sua implementação. 
+  - [ ] **LnBits** para que os usuários vips do nó, possam criar carteiras com funcionalidades adicionais e receberem os encaminhamentos de pagamento 
+  - [ ] **Explorer**: Explorador da blockchain 
+  - [ ] **Mempool**: acompanhamento em tempo real do estado da blockchain
+ 
+>Algumas aplicações requerem reinício do nó. Tenha paciência!
 
 
-## 3 Finalizando as Configurações
 
-### 3.1 Registre um domínio.
-  *	Utilize o GoDaddy ou o Name.com.  
-  *	Na compra já ative a Privacidade do Domínio básica. Na name.com utilize o cupom PRIVACYPLEASE para utilizar a privacidade de graça.
-  *	Não esqueça de ativar a autenticação 2 fatores e de registrar a senha da conta no gerenciador de senhas. 
+## 2 Finalizando as Configurações
+
+### 2.1 Configuração do Roteador
+  - [ ] Descubra como acessar a interface do seu roteador. 
+  - [ ] Altere a senha padrão do roteador.
+  - [ ] Desabilite a administração remota pela web.
+  - [ ] Desative o DMZ se estiver ativado
+  	>apenas utilize o DMZ se estiver utilizando dois roteadores, nunca ative o DMZ no roteador conectado direto ao nó
+  - [ ] Ative o firewall e a proteção anti-ddos. Não ative a opção  ping-da-morte. 
+  - [ ] Se possível atribua um IP LAN Fixo do Servidor linkado ao seu MAC ADDRESS 
+  - [ ] Redirecione as portas que serão ativadas 
+     	- [ ] Lnd: 9735:9735
+    	- [ ] Serviços (MemPol, Explorer, LnBits): 443 -> 49393 (Remap)
+    	- [ ] ElectrumServer: 50002:50002 
+
+>Se não estiver usando um IP fixo externo, configure um serviço de DNS dinâmico, se esta opção estiver disponível em seu roteador.
+
+### 2.2 Registre um domínio.
+  - [ ] Utilize o GoDaddy ou o Name.com.  
+  - [ ] Na compra já ative a Privacidade do Domínio básica. Na name.com utilize o cupom PRIVACYPLEASE para utilizar a privacidade de graça.
+  - [ ] Ative a autenticação 2 fatores 
+  - [ ] Registrar a senha da conta no gerenciador de senhas. 
+
+>Se optar por não usar um domínio, configure um serviço de DNS dinâmico para seu IP ou utilize o serviço via TOR.
   
-### 3.2 Configurações de DNS
-  *	Acesse a [Cloudflare](cloudflare.com), crie uma conta e faça login
-  *	Adicione o domínio que registrou a sua conta
-  *	Volte no site onde registrou o domínio e aponte para o DNS fornecido pela CloudFlare.
-  *	Após alterar o DNS, volte a Cloudflare e clique em verificar
-  *	Deixe o proxy desativado
-  *	No menu lateral, em “Rules”, crie uma regra “Forwarding URL”, “301 - Permanent Redirect” para redirecionar de http://*.seudominio.org/* para https://*.seudominio.org/* 
+### 2.3 Configurações de DNS
+  - [ ] Acesse a [Cloudflare](cloudflare.com), crie uma conta e faça login
+  - [ ] Adicione o domínio que registrou a sua conta
+  - [ ] Volte no site onde registrou o domínio e aponte para o DNS fornecido pela CloudFlare.
+  - [ ] Após alterar o DNS, volte a Cloudflare e clique em verificar
+  - [ ]  Deixe o proxy desativado
+  - [ ] No menu lateral, em `Rules`, crie uma regra `Forwarding URL`, `301 - Permanent Redirect` para redirecionar de `http://*.seudominio.org/*` para `https://*.seudominio.org/*` 
 
-  *	Em 'DNS', crie entradas TIPO A, para os subdomínios apontando para seu IP:
-    *	Explorer:  explorer
-    *	Mempool:  mempool
-    *	BtcPay: lnbits
-    *	Site Padrão: www
+  - [ ] Em `DNS`, crie entradas TIPO A, para os subdomínios apontando para seu IP:
+	- [ ] Explorer:  explorer
+	- [ ] Mempool:  mempool
+	- [ ] BtcPay: lnbits
+	- [ ] Site Padrão: www
   
-    *	Desative o proxy no domínio principal que roda o LndHub, Electrum e LnBits. 
+  - [ ] Desative o proxy no domínio principal que roda o LndHub, Electrum e LnBits. 
 
-### 3.3 Instalação do Certbot 
-  *	Abra o terminal e Instale o certbot
-    ```
-    sudo apt-get install certbot
-    ```
+### 2.3 Instalação do Certbot 
 
-  *	Crie os certificados TLS com o Certbot
+  - [ ] Abra o terminal e Instale o certbot executando o comando abaixo
+	```
+	sudo apt-get install certbot
+	```
+
+  - [ ] Crie os certificados TLS com o Certbot
     ```
     sudo certbot --manual --preferred-challenges dns certonly
     ```
@@ -169,25 +196,16 @@ Na página inicial da interface do MynodeBtc . Algumas aplicações requerem rei
     ○	Please deploy a DNS TXT record under the name _acme-challenge.seudominio.org with the following value: 
     ```
 
-  *	Na cloudflare crie uma entrada de DNS TXT com o nome _acme_challenge e insira a chave verificadora no campo TXT. Coloque TTL 1 minuto e aguarde um pouco antes de concluir. Após ter salvo a entrada na cloudflare
-  *	Volte ao prompt de comando e pressione enter.
-  *	Aguarde os certificados serem concluídos. 
-  *	É muito importante que a instalação do certbot tenha sido realizada para garantir que o certificado SSL seja corretamente configurado. 
+  - [ ] Na cloudflare crie uma entrada de DNS TXT com o nome _acme_challenge e insira a chave verificadora no campo TXT. Coloque TTL 1 minuto e aguarde um pouco antes de concluir. Após ter salvo a entrada na cloudflare
+  - [ ] Volte ao prompt de comando e pressione enter.
+  - [ ] Aguarde os certificados serem concluídos. 
+  - [ ] 
+  >É muito importante que a instalação do certbot tenha sido realizada para garantir que o certificado SSL seja corretamente configurado. 
 
 
 ### 3.3 Finalize a configuração do nginx
 
-  *	Basicamente, o script criado para facilitar a instalação, adiciona novos os arquivos de configuração dos sites nginx, aponta para seu domínio e configura os certificados criados.  Os arquivos criados e movidos pelo script que será instalado são:
-    ```
-    /etc/nginx/sites-enabled/https_btcpayserver-alt.conf
-    /etc/nginx/sites-enabled/https_btcrpcexplorer-alt.conf
-    /etc/nginx/sites-enabled/https_lnbits-alt.conf
-    /etc/nginx/sites-enabled/https_lndhub-alt.conf
-    /etc/nginx/sites-enabled/https_mempoolspace-alt.conf
-    /etc/nginx/sites-enabled/https_www-alt.conf
-    ```
-
-  *	Para instalar o script, abra o terminal e rode os comandos substituindo ***seudominio.org*** pelo domínio que você registrou anteriormente
+  Abra o terminal e rode os comandos substituindo ***seudominio.org*** pelo domínio que você registrou anteriormente
     ```
     sudo su 
     cd /home/admin/
@@ -198,6 +216,17 @@ Na página inicial da interface do MynodeBtc . Algumas aplicações requerem rei
     chmod 755 install.sh
     ./install.sh --domain seudominio.org 
     ```
+
+  *	Basicamente, o script acima criado para facilitar a instalação dos serviços, adiciona novos os arquivos de configuração dos sites nginx, aponta para seu domínio, configura os certificados adicionando os seguintes arquivos. 
+    ```
+    /etc/nginx/sites-enabled/https_btcpayserver-alt.conf
+    /etc/nginx/sites-enabled/https_btcrpcexplorer-alt.conf
+    /etc/nginx/sites-enabled/https_lnbits-alt.conf
+    /etc/nginx/sites-enabled/https_lndhub-alt.conf
+    /etc/nginx/sites-enabled/https_mempoolspace-alt.conf
+    /etc/nginx/sites-enabled/https_www-alt.conf
+    ```
+
 
 
 
@@ -221,14 +250,7 @@ Com o conjunto de conhecimentos deste estágio você colocará sua implementaç�
 Iremos abrir canais com os primeiros nós de nossa rede e  
 
 Passo a Passo
-●	Transfira bitcoin para a carteira do nó
 
-●	Abra canais com os seguintes nós:
-●	Praia Bitcoin - Brasil 1000000 SATs
-●	Praia Bitcoin - Jericoacoara  200000 SATs https://bit.ly/3Lz5VZ2
-●	Praia Bitcoin - Natal 200000 SATs
-●	Praia Bitcoin - Belo Horizonte 200000 SATs
-●	Lightning.Watch - 10000 SATS
 
 ●	Instale o LNDg, para fazer o balanceamento automático dos canais. Faça o login no SSH do myNode no usuário admin (não no usuário root)  e rode os comandos
 cd /home/admin
