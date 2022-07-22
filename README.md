@@ -254,16 +254,11 @@ Envia notificações das transações e cópias do channel.backup pelo telegram 
   - [ ] Volte no terminal do mynode e cole o código gerado 
   - [ ] Caso funcione corretamente você verá a mensagem "is_connected: true". 
   - [ ] Aperte CTRL + C para encerrar a aplicação
-
-#### 2.3.1 Configure o serviço para iniciar automaticamente
-
-Link das instruções
-[https://plebnet.wiki/wiki/BoS_Telegram_AutoStart](https://plebnet.wiki/wiki/BoS_Telegram_AutoStart)
-
-  - [ ] No link acima, siga o checklist para o Rapiblitz e substitua o `User=bos` por `User=admin`
-  - [ ] Altere o path `/home/bos/.npm-global/bin/bos` por `/usr/bin/bos`
-  - [ ] Salve e reinicie o servidor
-  - [ ] Após a Lightning iniciar, você passará a receber atualizações em tempo real.
+  - [ ] Configure o início automático do Bot, seguindo as instruções do checklist para o Rapiblitz no link [https://plebnet.wiki/wiki/BoS_Telegram_AutoStart](https://plebnet.wiki/wiki/BoS_Telegram_AutoStart)
+	  - [ ] Substitua o `User=bos` por `User=admin`
+	  - [ ] Altere o path `/home/bos/.npm-global/bin/bos` por `/usr/bin/bos`
+	  - [ ] Salve e reinicie o servidor
+	  - [ ] Após a Lightning iniciar, você passará a receber atualizações em tempo real.
 
 
 
@@ -350,24 +345,6 @@ Link das instruções
     `/etc/nginx/sites-enabled/https_mempoolspace-alt.conf`
     `/etc/nginx/sites-enabled/https_www-alt.conf`
 
-
-### Configuração da HotWallet LNBits - Suporte e Automatizações
-- [ ] Na página inicial da interface de gerenciamento do myNode, localize LnBits e clique em Open
-- [ ] Crie uma carteira LNBits e Salve o Link da Carteira no gerenciador de senhas
-- [ ] Em `Manage Extensions`, ative o `LndHub` 
-- [ ] Abaixo de 'LndHub' clique em `Open`
-- [ ] Salve a Admin URL no gerenciador de senhas
-- [ ] Importe esta carteira em sua Bluewallet, escaneando o QR Code Admin URL em 'Adicionar Carteira', 'Importar Carteira' na Bluewallet.
-- [ ] Volte ao Manage Extensions
-- [ ] Ative o LnSupport (1): Receba sats pagos para responder a perguntas. Cobrar pessoas por palavra para entrar em contato com você. Receberá notificações no Telegram a cada mensagem através do Bot do 'Balance Of Satoshis'.
-
-	- [ ] Clique em 'NEW FORM' (2) para criar o formulário de Suporte
-	- [ ] Em 'Wallet' selecione a carteira, em 'Form Name' coloque 'Solicitação de Suporte' 
-	- [ ] Em Description, insira o seguinte texto 
-Descreva qual seu problema, forneça um telefone de contato ou e-mail, pague a fatura lightning que será mostrada e receba uma resposta em até 48h. 1 sat por palavra.
-	- [ ] Em 'Amount per word' coloque '1' e clique em Create Form
-	- [ ] Salve o link do formulário em 'Form' para utilizar mais tarde (3)
-	- [ ] Em Tickets (4) aparecerão as mensagens 
     
 ### 3.5 - Teste os sites da implementação
 
@@ -380,34 +357,7 @@ Para criação das carteiras Lightning com a BlueWallet
 - [ ] Site Padrão do Banco: https://www.seudominio.org  
 
 
-
-
-
-
-#Estágio 6 - Canais, Rebalanceamento e BtcPayServer
-Com o conjunto de conhecimentos deste estágio você colocará sua implementação da Lightning para funcionar. 
-
-Iremos abrir canais com os primeiros nós de nossa rede e  
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-#### Transfira fundos para carteira do Nó
+### 3.6 - Transfira fundos para carteira do Nó
 
   - [ ] Deposite 0.01 bitcoin para a carteira do nó
   - [ ] Na Interface do myNode ative o RTL
@@ -421,28 +371,6 @@ Iremos abrir canais com os primeiros nós de nossa rede e
   - [ ] Compre inbound liquidity na LnBig.com
 
 >Não recomendamos conectar a carteira principal do nó ao seu smartphone
-
-
-
-
-
-### Ative o CallMeBot para receber notificações no whatsapp
-   - [ ] Adicione o número de telefone +34 644 91 07 79 em seus contatos do telefone. (nomeie como quiser)
-   - [ ] Envie esta mensagem "I allow callmebot to send me messagess" para o novo contato criado (usando o WhatsApp, é claro)
-   - [ ] Aguarde até receber a mensagem "API ativada para seu número de telefone. Sua APIKEY é 123123" do bot.
-   - [ ] Nota: Se você não receber o ApiKey em 2 minutos, tente novamente após 24hs.
-   - [ ] A mensagem do WhatsApp do bot conterá o apikey necessário para enviar mensagens usando a API.
-   - [ ] Você pode enviar mensagens de texto usando a API após receber a confirmação.
-
-
-
-
-
-
-
-
-
-
 
 
 
