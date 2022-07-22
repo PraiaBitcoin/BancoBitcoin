@@ -83,7 +83,8 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
   - [ ] Tenha certeza de que selecionou o disco certo, ignore o alerta, clique em `Flash` e aguarde a gravação.
   - [ ] Desligue o computador e remova o disco com segurança.
   
-  
+#
+
 ### 1.2 - Instalação do Hardware
   - [ ] Abra a parte traseira do Laptop
   - [ ] Instale o SSD que gravou na porta SATA principal.  
@@ -97,6 +98,8 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
 >IMPORTANTE: Evite utilizar conexões wi-fi, apenas em último caso, quando seja impossível fazer de outra maneira ou não tiver acesso ao roteador.
 >Caso não possua acesso ao roteador, você poderá rodar o nó com algumas limitações apenas pela rede TOR. 
 
+#
+
 ### 1.3 - Iniciando o myNodeBtc
   - [ ] Faça login com o usuário `admin`, senha `bolt` e aguarde o início do navegador. 
   - [ ] No browser que será carregado automaticamente, digite a senha ‘bolt’ para abrir a interface de gerenciamento
@@ -107,42 +110,9 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
 
 >A sincronização pode demorar alguns dias. Tenha paciência pois as aplicações só serão liberadas após a finalização do processo de sincronização. 
 
-### 1.4 - Configurações da Ligning
+#
 
-#### Criação da Carteira Lightning
-Execute os passos abaixo para criar a carteira Lightning associada ao nó:
-
-  - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em ` Create Wallet` 
-  - [ ] Na página `Lightning Status` clique em `Create Wallet`
-  - [ ] Em `Create Lightning Wallet` `Wallet Seed` anote as palavras geradas no seu gerenciador de senhas e guarde uma cópia offline em um pendrive armazenado de forma segunra ou em um cofre.
-  - [ ] Em `Re-enter Wallet Seed` insira as palavras da carteira criada e clique em `Create`
-  - [ ] Aguarde o carregamento da página `Wallet Created`
-
->VÍDEO DE EXEMPLO: [Criando a Carteira da Lightning no myNodeBTC](https://youtu.be/qft4T76Dqtk).
-
-
-#### Altere o arquivo de Configurações da Ligntning
-Altere as configurações da Lightning para iniciar o serviço
- 
-  - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em ` Wallet` 
-  - [ ] Na página `Lightning Status` na aba `Lightning`, em `Config, clique em `view/edit` 
-  - [ ] Apague todo conteúdo do arquivo, mas mantenha o endereço do domínio do TOR em `tlsextradomain=` 
-  - [ ] Abra este [modelo do lnd.conf](lnd.conf) e copie para área de transferência
-  - [ ] Volte ao editor do `lnd.conf` e cole o conteúdo do arquivo
-  - [ ] Faça as alterações nos campos 
-   	- `alias=NOME_DO_SERVIDOR`
-   	- `tlsextradomain=SEU_DOMINIO_DO_TOR.ONION`
-   	- `tlsextraip=SEU_IP_EXTERNO`
-   	- `externalip=SEU_IP_EXTERNO`
-   - [ ] Clique em `Save Config`
-  
->VÍDEO DO PROCEDIMENTO: [Alterando o LND.conf no myNodeBTC](https://youtu.be/wb-2scoZ2PI).
-
->DICA: Dependendo das configurações e modelo do seu roteador, pode ser que precise fazer outras alterações em seu lnd.conf. Consulte o grupo do NodeRunners Brasil no telegram para obter ajuda. 
-  
-## 2 Finalizando as Configurações
-
-### 2.1 Configuração do Roteador
+### 1.4 - Configuração do Roteador
   - [ ] Descubra como acessar a interface do seu roteador. 
   - [ ] Altere a senha padrão do roteador.
   - [ ] Desabilite a administração remota pela web.
@@ -152,13 +122,52 @@ Altere as configurações da Lightning para iniciar o serviço
   - [ ] Se possível atribua um IP LAN Fixo do Servidor linkado ao seu MAC ADDRESS 
   - [ ] Redirecione as portas que serão ativadas 
      	- [ ] Lnd: 9735:9735
-    	- [ ] Serviços (MemPol, Explorer, LnBits): 443 -> 49393 (Remap)
+    	- [ ] Serviços (MemPol, Explorer, LnBits, BtcPay): 443 -> 49393 (Remap)
     	- [ ] ElectrumServer: 50002:50002 
 
 >Se não estiver usando um IP fixo externo, configure um serviço de DNS dinâmico, se esta opção estiver disponível em seu roteador.
 
-### 1.5 - Ativando as outras aplicações do MyNodeBTC
+#
+
+### 1.5 - Configurações da Ligthning
+
+#### 1.5.1 - Criação da Carteira
+Execute os passos abaixo para criar a carteira Lightning associada ao nó:
+
+  - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em ` Create Wallet` 
+  - [ ] Na página `Lightning Status` clique em `Create Wallet`
+  - [ ] Em `Create Lightning Wallet` `Wallet Seed` anote as palavras geradas no seu gerenciador de senhas e guarde uma cópia offline em um pendrive armazenado de forma segunra ou em um cofre.
+  - [ ] Em `Re-enter Wallet Seed` insira as palavras da carteira criada e clique em `Create`
+  - [ ] Aguarde o carregamento da página `Wallet Created`
+
+##### :tv: Vídeo: [Criando a Carteira da Lightning no myNodeBTC](https://youtu.be/qft4T76Dqtk).
+
+#
+
+#### 1.5.2 - Mudando as configurações da Lightning
+Altere as configurações da Lightning para iniciar o serviço
+  - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em `Wallet` 
+  - [ ] Na página `Lightning Status` na aba `Lightning`, em `Config`, clique em `view/edit` 
+  - [ ] Apague todo conteúdo do arquivo, mas mantenha o endereço do domínio do TOR em `tlsextradomain=` 
+  - [ ] Abra este [modelo do lnd.conf](lnd.conf) e copie para área de transferência
+  - [ ] Volte ao editor do `lnd.conf` e cole o conteúdo do arquivo
+  - [ ] Faça as alterações nos campos 
+	- `alias=NOME_DO_SERVIDOR`
+	- `tlsextradomain=SEU_DOMINIO_DO_TOR.ONION`
+	- `tlsextraip=SEU_IP_EXTERNO`
+	- `externalip=SEU_IP_EXTERNO`
+   - [ ] Clique em `Save Config`
+
+##### :tv: Vídeo: [Alterando o LND.conf no myNodeBTC](https://youtu.be/wb-2scoZ2PI).
+
+>DICA: Dependendo das configurações e modelo do seu roteador, pode ser que precise fazer outras alterações em seu lnd.conf. Consulte o grupo do NodeRunners Brasil no telegram para obter ajuda. 
+
+# 
+
+### 1.6 - Ativando as outras aplicações do MyNodeBTC
+
 Após fazer login e a sincronização da blockchain for concluida, abra o browser e acesse a na página inicial da interface do MynodeBtc em `http://localhost` e ative as aplicações abaixo clicando em `Enable`:
+
   - [ ] **RTL**: Interface para administrar a Carteira Lightning associada ao nó
   - [ ] **Electrum Server**: Ele irá sincronizar informações adicionais da blockchain para oferecer os dados para o Explorer e uma conexão dos usuários que configurarem o servidor Electrum da sua implementação. 
   - [ ] **LndHub** Criar carteiras Lightning simples com controle pelo smartphone através da Bluewallet 
@@ -166,18 +175,111 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   - [ ] **Explorer**: Explorador da blockchain 
   - [ ] **Mempool**: acompanhamento em tempo real do estado da blockchain
  
->VÍDEO DO PROCEDIMENTO: [Ativando as aplicações do Banco Bitcoin](https://youtu.be/ZTd5tyv9Wf4)
+##### :tv: Vídeo: [Ativando as aplicações do Banco Bitcoin](https://youtu.be/ZTd5tyv9Wf4)
+  
+#
+
+### 1.7 - Ative o Balance of Satoshis 
+
+#### :tv: [Instalação do Balance of Satoshis](https://youtu.be/buj8dTjJ_Ok) (VÍDEO)
+- [ ] Em `Applications`, `Manage Apps` encontre o `Balance of Satoshis` e clique em `Install` para ativar o app. 
+- [ ] Aguarde a instalação que pode demorar um pouco e a configuração será finalizada mais tarde
+  
+ #
+ 
+### 1.8 - Ative o LNDg
+- [ ] Em `Applications`, `Manage Apps` encontre o `LNDg` e clique em `Install` para ativar o app. 
+- [ ] Aguarde a instalação que pode demorar um pouco e a configuração será finalizada mais tarde
 
 
-### 2.2 Registre um domínio.
+#
+
+### 1.9 - Instale o Google Drive 
+  - [ ] Execute os comandos no terminal para fazer download desta versão do gdrive  https://github.com/prasmussen/gdrive/ 
+
+  ```
+  su
+  cd ~
+  wget https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_linux_amd64.tar.gz 
+  tar -xvzf gdrive_2.1.1_linux_amd64.tar.gz
+  apt install -y musl
+  mv gdrive /usr/local/bin/gdrive
+  gdrive about
+  ```
+  
+  - [ ] Copie o código fornecido no terminal em `Go to the following url in your browser` em uma janela do navegador
+  - [ ] Faça login na sua conta Google
+  - [ ] Clique em `Permitir`
+
+  - [ ] Copie o código de autorização no terminal e pressione enter
+```
+gdrive mkdir backup
+*XBX9GXlR6EmbnY1RLVTk5VUtOVkk created*
+```
+
+#
+
+
+## 2 - Configurações de Backup
+
+
+#### 2.3 - Configure o Backup Frequente dos Arquivos Críticos
+Arquivos Críticos com backups instantâneos a cada alteração:
+channel.backup
+lnbits.db
+lndhub.db
+Postgres: Banco de dados Btcpay
+
+Arquivos do sistema: 
+letsencrypt
+Ngix
+lnd
+bitcoin
+
+#### 2.4 - Bot do Telegram
+Envia notificações das transações e cópias do channel.backup pelo telegram a cada alteração dos estados dos canais. Este arquivo serve para restaurar seus fundos em caso de desastre.
+
+  - [ ] Abra o link para configurar o Bot do Telegram https://t.me/BotFather 
+  - [ ] Siga a execução dos comandos para gerar a chave da API - (Ajuda aqui https://t.me/balanceofsatoshis/53638) 
+  - [ ] Envie o comando /newbot
+    	- [ ] Defina o nome do app - NOME DO APP
+  	- [ ] Defina o username do Bot, no formato: nomedoapp_bot
+  	- [ ] Copie a chave da API, que deve se parecer com isto: 
+  	`5555555555:AAAAAAAAALRFV1n7QhFu3tzUoq55555555`
+  - [ ] No terminal do mynode digite: bos telegram
+  - [ ] Insira a chave da API gerada pelo BotFather e pressione enter.
+  - [ ] Abra um chat com o seu boot https://t.me/nomedoapp_bot
+  - [ ] Na janela do chat digite /connect
+  - [ ] Copie o número que será gerado com 9 dígitos
+  - [ ] Volte no terminal do mynode e cole o código gerado 
+  - [ ] Caso funcione corretamente você verá a mensagem "is_connected: true". 
+  - [ ] Aperte CTRL + C para encerrar a aplicação
+
+#### 2.3.1 Configure o serviço para iniciar automaticamente
+
+Link das instruções
+[https://plebnet.wiki/wiki/BoS_Telegram_AutoStart](https://plebnet.wiki/wiki/BoS_Telegram_AutoStart)
+
+  - [ ] No link acima, siga o checklist para o Rapiblitz e substitua o `User=bos` por `User=admin`
+  - [ ] Altere o path `/home/bos/.npm-global/bin/bos` por `/usr/bin/bos`
+  - [ ] Salve e reinicie o servidor
+  - [ ] Após a Lightning iniciar, você passará a receber atualizações em tempo real.
+
+
+
+## 3 - Publicação dos serviços
+
+### 3.1 - Registre um domínio.
   - [ ] Utilize o GoDaddy ou o Name.com.  
   - [ ] Na compra já ative a Privacidade do Domínio básica. Na name.com utilize o cupom PRIVACYPLEASE para utilizar a privacidade de graça.
   - [ ] Ative a autenticação 2 fatores 
   - [ ] Registrar a senha da conta no gerenciador de senhas. 
 
 >Se optar por não usar um domínio, configure um serviço de DNS dinâmico para seu IP ou utilize o serviço via TOR.
-  
-### 2.3 Configurações de DNS
+
+#
+
+### 3.2 - Configurações de DNS
   - [ ] Acesse a [Cloudflare](cloudflare.com), crie uma conta e faça login
   - [ ] Adicione o domínio que registrou a sua conta
   - [ ] Volte no site onde registrou o domínio e aponte para o DNS fornecido pela CloudFlare.
@@ -193,7 +295,9 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   
   - [ ] Desative o proxy no domínio principal que roda o LndHub, Electrum e LnBits. 
 
-### 2.4 Instalação do Certbot 
+#
+
+### 3.3 - Instalação dos Certificados SSL
 
   - [ ] Abra o terminal e Instale o certbot executando o comando abaixo
 	```
@@ -219,160 +323,25 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   - [ ] Aguarde os certificados serem concluídos. 
   
   >É muito importante que a instalação do certbot tenha sido realizada para garantir que o certificado SSL seja corretamente configurado. 
-
-## 2.5 Instalação do Balance of Satoshis
-  - [ ] Em Manage Apps do myNodeBtc e ativar o app. Após ativar reinicie.
-  - [ ] Abra o link para configurar o Bot do Telegram https://t.me/BotFather 
-  - [ ] Siga a execução dos comandos para gerar a chave da API - (Ajuda aqui https://t.me/balanceofsatoshis/53638) 
-  - [ ] Envie o comando /newbot
-    	- [ ] Defina o nome do app - NOME DO APP
-  	- [ ] Defina o username do Bot, no formato: nomedoapp_bot
-  	- [ ] Copie a chave da API, que deve se parecer com isto: 
-  	`5555555555:AAAAAAAAALRFV1n7QhFu3tzUoq55555555`
-  	- [ ] No terminal do mynode digite: bos telegram
-  - [ ] Insira a chave da API gerada pelo BotFather e pressione enter.
-  - [ ] Abra um chat com o seu boot https://t.me/nomedoapp_bot
-  - [ ] Na janela do chat digite /connect
-  - [ ] Copie o número que será gerado com 9 dígitos
-  - [ ] Volte no terminal do mynode e cole o código gerado 
-  - [ ] Caso funcione corretamente você verá a mensagem "is_connected: true". 
-  - [ ] Aperte CTRL + C para encerrar a aplicação
   
-  - [ ] Configure o serviço para iniciar automaticamente
+#
 
 
-	Link das instruções
-	https://plebnet.wiki/wiki/BoS_Telegram_AutoStart
+### 3.4 - Publicação dos Serviços 
 
-	 - [ ] No link acima, siga o Checklist para o Rapiblitz e substitua o User=bos por User=admin
-	 - [ ] Altere o path /home/bos/.npm-global/bin/bos por /usr/bin/bos
-	 - [ ] Salve e reinicie o servidor
-	 - [ ] Após a Lightning iniciar você receberá uma notificação no seu Bot e passará a receber atualizações de tudo que acontece no nó pelo telegram em tempo real.
-
-## 2.6 Instale o Google Drive 
-Execute os comandos no terminal para fazer download do gdrive do GitHub https://github.com/prasmussen/gdrive/ 
-
-	```
-	su
-	cd ~
-	wget https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_linux_amd64.tar.gz 
-	tar -xvzf gdrive_2.1.1_linux_amd64.tar.gz
-	apt install -y musl
-	mv gdrive /usr/local/bin/gdrive
-	gdrive about
-	```
-
-  - [ ] Copie o código fornecido no terminal em Go to the following url in your browser em uma janela do navegador
-  - [ ] Faça login na sua conta Google
-  - [ ] Clique em Permitir
-  - [ ] Copie o código de autorização no terminal e pressione enter
-	```
-	gdrive mkdir backup
-	*XBX9GXlR6EmbnY1RLVTk5VUtOVkk created*
-	```
-
-##2.7 Gerando sua chave pública e privada do servidor
-Gere uma chave de criptografia GPG associada ao e-mail criado e ao nome do experimento. 
-
-  - [ ] Execute os comandos no terminal. 
-	```
-	sudo su
-	gpg --full-generate-key --expert
-	○	Please select what kind of key you want: Your Selection? 1
-	○	What keysize do you want? 4096
-	○	What keysize do you want for the subkey? 4096
-	○	Key is valid for? 0 
-	○	Is this correct? Y
-	○	Real Name: Primeiro e Último nome
-	○	Email Address: emaildoexperimento@protonmail.com
-	○	Comment: Nome do Seu Experimento
-	○	Change (N)ame, (C)omment (E)mail (O)kay/(Q)uit? O
-	○	Please enter the passphrase to protect your new key: Crie uma senha forte e anote para salvar no seu gestor de senhas após concluir o procedimento
-	```
-	```
-	gpg -k user@email
-	```
-	
-	Localize a assinatura que gerou, anote o ID da assinatura que deve se parecer com esse 2050D19261ADE8E9493FE78F793617911886BBC5
-	
-	```
-	gpg --output public.pgp --armor --export ID
-	gpg --output private.pgp --armor --export-secret-key ID
-	gpg --output backupkeys.pgp --armor --export-secret-keys --export-options export-backup ID
-	```
-
-	Faça um backup dos arquivos das chaves public.pgp, private.pgp e  backupkeys.pgp no gerenciador de senhas:  
-	●	Faça Login na sua conta do Gerenciador de Senhas de sua preferência e crie uma identidade 
-	●	Se estiver usando uma conta paga poderá salvar os arquivos, se não, copie o conteúdo dos arquivos em notas. 
-	●	Fazer uma Cópia Offline e guarde-a com segurança. Converta as chaves com o Paperkey https://github.com/dmshaw/paperkey/ 
-
-
-
-##2.8 Instalação script de Backup
-Instale o script de Backup criado para fazer backups regulares e enviar para o google drive
+- [ ] Abra o terminal e rode os comandos abaix, substituindo ***seudominio.org*** pelo domínio registrado ou do DNS dinâmico.
+  ```
+  sudo su 
+  cd /home/admin/
+  mkdir scripts
+  cd scripts
+  git clone https://github.com/PraiaBitcoin/MyNodeBTC-Install 
+  cd MyNodeBTC-Install
+  chmod 755 install.sh
+  ./install.sh --domain seudominio.org 
+  ```
   
-  - [ ] Rode os comandos no terminal
-	```
-	sudo su
-	cd /home/admin/
-	git clone https://github.com/PraiaBitcoin/MyNodeBTC-Backup
-	cd MyNodeBTC-Backup
-	gpg -k seuemail@protonmail.com
-	```
-  - [ ] Copie seu ID e altere o arquivo  
-  	
-	```
-	nano .config 
-	**PUBLIKEY=”seu_id_entre_aspas”
-	PASSWORD=Sua_Senha_da__Assinatura_GPG**
-	```
-	- [ ] No arquivo já consta o ID da Bitcoin Beach Brazil. Substitua pelo
-	seu ID.
-	- [ ] Em Password “Insira a senha da sua chave privada”. 
-
-  - [ ] Após alterar o arquivo, salve e execute os últimos dois comandos
-	```
-	chmod 755 install.sh
-	sudo ./install.sh
-	```
-
-
-### Lista de Comandos do Serviço de Backup
-	>Comando para verificar o status do serviço
-	```
-	sudo systemctl status backupmynode.service
-	```
-
-	>Comando para verificar o status do timer
-	```
-	sudo systemctl status backupmynode.timer
-	```
-
-	>Comando para executar um backup manualmente 
-	```
-	sudo /home/admin/scripts/MyNodeBTC-Backup/backupmynode.sh
-	```
-
-	>Verifique se o arquivo foi criptografado
-	```
-	sudo su
-	cd /mnt/hdd/BACKUP
-	gpg -d nomedoarquivo.tar.asc > nomedearquivosdesaida.tar
-	```
-
-●	Verifique os arquivos criados descompactando-os
-```
-tar tfv /mnt/hdd/BACKUP/nomedearquivosdesaida.tar
-```
-
-●	Verifique os arquivos criados no Google Drive
-●	Faça backup da chave privada no gestor de senhas, ou utilize o YUBIKEY
-●	Após ter feito backup da chave privada do GPG, delete-a do servidor executando os comandos abaixo
-
-
-### 2.5 Finalize a configuração do nginx
-
-Basicamente, o script criado para facilitar a instalação dos serviços do Banco Bitcoin deste guia, adiciona novos os arquivos de configuração dos sites nginx, aponta para seu domínio, configura os certificados adicionando os seguintes arquivos a serem baixados do github. 
+>EXPLICAÇÂO: Basicamente, o script criado para facilitar a instalação dos serviços do Banco Bitcoin deste guia, adiciona novos os arquivos de configuração dos sites nginx, aponta para seu domínio, configura os certificados adicionando os seguintes arquivos a serem baixados do github. 
 
     `/etc/nginx/sites-enabled/https_btcpayserver-alt.conf`
     `/etc/nginx/sites-enabled/https_btcrpcexplorer-alt.conf`
@@ -380,20 +349,27 @@ Basicamente, o script criado para facilitar a instalação dos serviços do Banc
     `/etc/nginx/sites-enabled/https_lndhub-alt.conf`
     `/etc/nginx/sites-enabled/https_mempoolspace-alt.conf`
     `/etc/nginx/sites-enabled/https_www-alt.conf`
-    
-   - [ ] Abra o terminal e rode os comandos abaix, substituindo ***seudominio.org*** pelo domínio registrado ou do DNS dinâmico.
-    ```
-    sudo su 
-    cd /home/admin/
-    mkdir scripts
-    cd scripts
-    git clone https://github.com/PraiaBitcoin/MyNodeBTC-Install 
-    cd MyNodeBTC-Install
-    chmod 755 install.sh
-    ./install.sh --domain seudominio.org 
-    ```
 
-### 2.6 Teste os sites da implementação
+
+### Configuração da HotWallet LNBits - Suporte e Automatizações
+- [ ] Na página inicial da interface de gerenciamento do myNode, localize LnBits e clique em Open
+- [ ] Crie uma carteira LNBits e Salve o Link da Carteira no gerenciador de senhas
+- [ ] Em `Manage Extensions`, ative o `LndHub` 
+- [ ] Abaixo de 'LndHub' clique em `Open`
+- [ ] Salve a Admin URL no gerenciador de senhas
+- [ ] Importe esta carteira em sua Bluewallet, escaneando o QR Code Admin URL em 'Adicionar Carteira', 'Importar Carteira' na Bluewallet.
+- [ ] Volte ao Manage Extensions
+- [ ] Ative o LnSupport (1): Receba sats pagos para responder a perguntas. Cobrar pessoas por palavra para entrar em contato com você. Receberá notificações no Telegram a cada mensagem através do Bot do 'Balance Of Satoshis'.
+
+	- [ ] Clique em 'NEW FORM' (2) para criar o formulário de Suporte
+	- [ ] Em 'Wallet' selecione a carteira, em 'Form Name' coloque 'Solicitação de Suporte' 
+	- [ ] Em Description, insira o seguinte texto 
+Descreva qual seu problema, forneça um telefone de contato ou e-mail, pague a fatura lightning que será mostrada e receba uma resposta em até 48h. 1 sat por palavra.
+	- [ ] Em 'Amount per word' coloque '1' e clique em Create Form
+	- [ ] Salve o link do formulário em 'Form' para utilizar mais tarde (3)
+	- [ ] Em Tickets (4) aparecerão as mensagens 
+    
+### 3.5 - Teste os sites da implementação
 
 Para criação das carteiras Lightning com a BlueWallet
 - [ ] LnBits: https://lnbits.seudominio.org
@@ -414,24 +390,6 @@ Com o conjunto de conhecimentos deste estágio você colocará sua implementaç�
 Iremos abrir canais com os primeiros nós de nossa rede e  
 
 
-#Configuração da HotWallet LNBits - Suporte e Automatizações
-●	Na página inicial da interface de gerenciamento do myNode, localize LnBits e clique em Open
-●	Crie uma carteira LNBits e Salve o Link da Carteira no gerenciador de senhas
-●	Em Manage Extensions, 
-●	Ative o LndHub 
-●	Clique em open
-●	Salve a Admin URL no gerenciador de senhas
-●	Importe esta carteira em sua Bluewallet, escaneando o QR Code Admin URL em 'Adicionar Carteira', 'Importar Carteira' na Bluewallet.
-●	Volte ao Manage Extensions
-●	Ative o LnSupport (1): Receba sats pagos para responder a perguntas. Cobrar pessoas por palavra para entrar em contato com você. Receberá notificações no Telegram a cada mensagem através do Bot do 'Balance Of Satoshis'.
-
-●	Clique em 'NEW FORM' (2) para criar o formulário de Suporte
-●	Em 'Wallet' selecione a carteira, em 'Form Name' coloque 'Solicitação de Suporte' 
-●	Em Description, insira o seguinte texto 
-Descreva qual seu problema, forneça um telefone de contato ou e-mail, pague a fatura lightning que será mostrada e receba uma resposta em até 48h. 1 sat por palavra.
-●	Em 'Amount per word' coloque '1' e clique em Create Form
-●	Salve o link do formulário em 'Form' para utilizar mais tarde (3)
-●	Em Tickets (4) aparecerão as mensagens 
 
 
 
@@ -439,31 +397,10 @@ Descreva qual seu problema, forneça um telefone de contato ou e-mail, pague a f
 
 
 
-## Monitoramento, Backup e Restauração
-Antes de se aventurar em campo, é necessário implantar os procedimentos de Backup, restauração, notificações e status. 
-Primeiro iremos instalar o Balance of Satoshis para enviar notificações das transações e cópias do channel.backup pelo telegram a cada alteração dos estados dos canais. Este arquivo serve para restaurar seus fundos em caso de desastre. 
 
-Depois iremos gerar uma assinatura GPG exclusivamente para criptografar o backup e apagá-la do servidor. Logo após iremos implementar o google drive, e o script de backup que faz uma cópia de todos os arquivos de 24 horas, criptografa, copia para o pendrive e faz uma cópia na nuvem. 
-
-Por fim, para lidar com os incidentes, iremos ativar o serviço de status, onde caso algo aconteça com sua implementação, você poderá comunicar para os usuários e construir mais uma camada de confiança com a comunidade. 
-
-Arquivos Críticos com backups instantâneos a cada alteração:
-channel.backup
-lnbits.db
-lndhub.db
-Postgres: Banco de dados Btcpay
-
-Arquivos do sistema: 
-letsencrypt
-Ngix
-lnd
-bitcoin
-Se você decidir migrar para um novo dispositivo, um outro SSD externo de 1TB pode ajudá-lo a poupar tempo para restabelecer o serviço.
-Será necessário conectá-lo, e utilizar a ferramenta do myNode para preparar o disco para receber os arquivos. 
-Depois disso, iremos transferir os dados da blockchain e das aplicações para o novo disco.
 
  
-#Passo a Passo - Configurando os backups
+
 
 
 
@@ -499,31 +436,10 @@ Depois disso, iremos transferir os dados da blockchain e das aplicações para o
 
 
 
-### Instalação do LNDg
 
-   - [ ] Instale o LNDg, para fazer o balanceamento automático dos canais. Faça o login no SSH do myNode no usuário admin (não no usuário root)  e rode os comandos
-	```
-	cd /home/admin
-	git clone https://github.com/PraiaBitcoin/myNodeBtc-LndG-Install
-	cd myNodeBtc-LndG-Install
-	chmod 755 ./install_lndg.sh
 
-	```
 
-   - [ ] Inicie a configuração do webservice executando os comandos:
-	´´´
-	sudo bash nginx.sh
-	sudo systemctl restart uwsgi.service
-	´´´
-   
-   - [ ] Cheque o status dos serviços
-	´´´
-	sudo systemctl status jobs-lndg.timer
-	sudo systemctl status rebalancer-lndg.timer
-	sudo systemctl status htlc-stream-lndg.service
-	´´´
 
-   - [ ] Acesse a interface  no `http://localhost:8889`
 
 
 
