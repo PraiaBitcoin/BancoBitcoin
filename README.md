@@ -1,24 +1,20 @@
 # Banco Padrão Bitcoin & LND no Laptop
-Solução bancária experimental, usando MyNodeBTC Premium com Bitcoin Core, Lightning, Electrum e LnBits
+Conectado à internet, com um Laptop ou Desktop reciclado, iremos rodar um Banco de Bitcoin Experimental com um capital inicial de 0.01 BTC, utilizando o myNodeBTC Premium com Bitcoin Core, Lightning, Electrum e LnBits para permitir que uma comunidade possa iniciar seu processo de adoção do padrão bitcoin, utilizando uma infraestrutura simples e confiável.
 
-Conectado à internet, com um Laptop ou Desktop reciclado, processador Intel i5, 8GB de RAM, 1 HD SSD de 120gb, 1 HD SSD externo de 1TB, iremos rodar um Banco de Bitcoin hospedado em casa para seu uso pessoal começando com um capital inicial de 0.01 BTC. 
+O serviço hospedado no conforto da sua casa ou empresa e viável economicamente para uso pessoal, familiar ou comunitário. 
 
-No diagrama abaixo, podemos observar como funciona a solução experimental utilizada em Jericoacoara, a qual você aprenderá a implementar nos próximos capítulos:
 
+## Como Funciona
+O operador do nó, ou seja, o dono do servidor, gerencia os serviços oferecidos através de uma série de ferramentas de código aberto que estão integradas a rede do Bitcoin e Lightning, instaladas em um laptop com a cópia da blockchain. 
+
+A experiência dos usuários conectados ao nó local utilizando uma carteira lightning através do aplicativo BlueWallet, é como se abrissem uma contra corrente BTC (sem precisarem se identificar), usufruíssem de toda infraestrutura do “Banco Bitcoin” para receber e enviar pagamentos, sem se preocupar com os canais que fornecem a liquidez.
+
+O plugin de contas lightning é controlado pela LNBits usando a extensão LndHub, permite que um grupo de usuários crie contas diferentes com apenas um nó em uma configuração de confiança minimizada. Além disso, utilizamos também o Electrum Server, para garantir uma implementação completa também para carteiras on-chain sem custódia.
  
+No diagrama abaixo, podemos observar como funciona a solução experimental, a qual você aprenderá a implementar neste guia:
+
 ![Diagrama da Solução Experimental do Banco Padrão Bitcoin](images/image01.png)
 
-
-A experiência dos usuários conectados ao nó local utilizando uma carteira lightning na BlueWallet, é como se abrissem uma contra corrente (sem precisarem se identificar), usufruíssem de toda infraestrutura do “Banco Bitcoin” para receber e enviar pagamentos, sem se preocupar com os canais que fornecem a liquidez.
-
-O operador do nó, gerencia o serviço através de uma série de ferramentas de código aberto que estão integradas a rede do Bitcoin e Lightning, instaladas em um laptop com a cópia da blockchain. O plugin de contas lightning é controlado pelo LNDhub , permite que um grupo de usuários crie contas diferentes com apenas um nó em uma configuração de confiança minimizada.
-
- 
-Diagrama de Funcionamento do LNDHub. Fonte: Bluewallet
-
-O usuário envia uma transação para um endereço de recarga (onchain) dedicado e esse saldo é adicionado à sua conta no LNDhub. Em seguida, o usuário pode usar esse saldo para pagar as faturas do Lightning, ou simplesmente usar a carteira para receber pagamentos. Como as interações entre os usuários dependem de QR codes e no Brasil, a tecnologia foi popularizada com uso do PIX, os usuários podem fazer transações financeiras com tarifas baixíssimas e preservando sua privacidade usando bitcoin através da lightning.
-
-A arquitetura da solução implementada em Jericoacoara, permite que mesmo com poucos recursos disponíveis, uma comunidade possa iniciar seu processo de adoção do padrão bitcoin utilizando uma infraestrutura simples, relativamente fácil de se administrar e viável economicamente. 
 
 
 
@@ -27,25 +23,35 @@ A arquitetura da solução implementada em Jericoacoara, permite que mesmo com p
 ### 1.1 - Escolhendo os Equipamentos do Servidor
 Na fase inicial da sua implementação, qualquer equipamento disponível, talvez possa servir. 
 
-Nesta etapa é importante entender o funcionamento das ferramentas e depois de entendê-las, você poderá migrar para o ambiente ideal que couber no seu bolso.  Caso não possua nenhum equipamento disponível e necessite adquirir um equipamento usado ou novo, você pode considerar as seguintes opções com excelente custo-benefício e praticamente na mesma faixa de preço:
+Nesta etapa é importante entender o funcionamento das ferramentas e depois de entendê-las, você poderá migrar para o ambiente ideal que couber no seu bolso conforme a evolução de seu experimento.  
 
-  *	Laptop Dell i3, i5 ou i7, com 8gb de RAM
-  *	Raspberry Pi 4 com 8GB de memória RAM 
-  *	Cpu Desktop I7 8gb Ram Ssd 120gb
+![Entenda a diferença das implementações](images/image02.png)
 
-Em Jericoacoara, sem um nobreak que funcionasse adequadamente, desisti de rodar o servidor em um Desktop e acabei utilizando um Laptop Dell i7 com 8GB de RAM com duas horas de bateria.  Além do dispositivo principal, você precisará de 2 discos: um USB SSD para o Sistema Operacional de no mínimo 32gb, e outro SSD de 1TB para o armazenamento do blockchain. 
+Caso não possua nenhum equipamento disponível e necessite adquirir um equipamento usado ou novo, você pode considerar as seguintes opções com excelente custo-benefício e praticamente na mesma faixa de preço:
 
-Prefira hardwares confiáveis e novos. 
+  * Laptop Dell i3, i5 ou i7, com 8gb de RAM
+  * Raspberry Pi 4 com 8GB de memória RAM 
+  * Cpu Desktop I7 8gb Ram Ssd 120gb
+
+Em Jericoacoara, sem um nobreak que funcionasse adequadamente, desisti de rodar o servidor em um Desktop e acabei utilizando um Laptop Dell i7 com 8GB de RAM com duas horas de bateria.  
+
+Além do dispositivo principal, você precisará de 2 discos:
+  * 1 SSD para o Sistema Operacional de no mínimo 32gb.
+  * 1 SSD externo de 1TB para o armazenamento do blockchain. 
+
+Prefira hardwares de marcas confiáveis e de preferência novos para evitar dores de cabeça.
+
  
 ### 1.2 - Escolhendo o Software da Distribuição
 Existem diversas distribuições similares rodando com a mesma finalidade, sendo possível migrar facilmente a sua carteira lightning para qualquer uma delas e rodar o seu nó onde quiser, mas a base do sistema sempre será a mesma. 
 
-Todas as ferramentas, incluindo, Debian, Bitcoin, Lightning, Specter, Lnbits, BtcPayServer, LndHub, RTL e Electrum, são de código aberto e estão sob a licença MIT, que significa que basicamente qualquer um pode usá-los, sem qualquer restrição e sem garantias, mas as distribuições podem ter licenças diferentes.
+![Exemplos de distribuições](images/image03.png)
+
+Todas as ferramentas dos clientes Bitcoin & Lighning acima, utilizam Debian, Bitcoin Core, Lightning, Specter, Lnbits, BtcPayServer, LndHub, RTL e Electrum. Todos esses softwares são código aberto e estão sob a licença MIT, que significa que basicamente qualquer um pode usá-los, sem qualquer restrição e sem garantias, porém o pacote das distribuições podem ter licenças diferentes que podem ter algumas restrições.
 
 Neste guia iremos utilizar a distribuição MyNodeBtc, devido sua facilidade de uso e suporte premium.  
 
-
-
+ 
 ### 1.3 - O local e a internet
   *	Encontre um local para instalar o Servidor que tenha certa segurança e esteja protegido.
   *	Providencie assim que possível, um nobreak de 1500va pode ajudar em caso de queda de energia, ou uma bateria de carro estacionária com um inversor. 
