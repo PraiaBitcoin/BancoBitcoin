@@ -198,9 +198,7 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
 
 ### 2.9 - Instale o Google Drive 
   - [ ] Execute os comandos no terminal para fazer download desta versão do gdrive
-  https://github.com/prasmussen/gdrive/ 
-
->DICA: Para colar os comandos no terminal, utilize a combinação das teclas `SHIFT` + `INSERT`
+        https://github.com/prasmussen/gdrive/ 
 
   ```
   sudo su
@@ -211,16 +209,20 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   mv gdrive /usr/local/bin/gdrive
   gdrive about
   ```
-  
-  - [ ] Copie o código fornecido no terminal em `Go to the following url in your browser` em uma janela do navegador
-  - [ ] Faça login na sua conta Google
-  - [ ] Clique em `Permitir`
+  >DICA: Para colar os comandos no terminal, utilize a combinação das teclas `SHIFT` + `INSERT`
 
-  - [ ] Copie o código de autorização no terminal e pressione enter
-```
-gdrive mkdir backup
-*XBX9GXlR6EmbnY1RLVTk5VUtOVkk created*
-```
+   - [ ] Copie o código fornecido no terminal em `Go to the following url in your browser` em uma janela do navegador
+        >DICA: Para copiar, basta marcar o endereço no terminal, clicando e arrastando. 
+        
+        - [ ] Abra o link no navegador e faça login na sua conta Google
+	- [ ] Clique em `Permitir`
+	- [ ] Copie o código de autorização no terminal e pressione enter
+  
+  - [ ] Crie um diretório para Salvar os Backups
+	```
+	gdrive mkdir backup
+	*XBX9GXlR6EmbnY1RLVTk5VUtOVkk created*
+	```
 
 #### :tv: Vídeo: [Instalação do gdrive](https://youtu.be/TXImzUFSE_U)
 #
