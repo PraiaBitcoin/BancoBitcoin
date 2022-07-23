@@ -212,10 +212,10 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   >DICA: Para colar os comandos no terminal, utilize a combinação das teclas `SHIFT` + `INSERT`
 
    - [ ] Copie o código fornecido no terminal em `Go to the following url in your browser` em uma janela do navegador
-        >DICA: Para copiar, basta marcar o endereço no terminal, clicando e arrastando. 
-	- [ ] Abra o link no navegador e faça login na sua conta Google
-	- [ ] Clique em `Permitir`
-	- [ ] Copie o código de autorização no terminal e pressione enter
+   	 >DICA: Para copiar, basta marcar o endereço no terminal, clicando e arrastando. 
+   	 - [ ] Abra o link no navegador e faça login na sua conta Google
+   	 - [ ] 	Clique em `Permitir`
+   	 - [ ] 	Copie o código de autorização no terminal e pressione enter
   
   - [ ] Crie um diretório para Salvar os Backups
 	```
