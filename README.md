@@ -200,29 +200,29 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   - [ ] Execute os comandos no terminal para fazer download desta versão do gdrive
         https://github.com/prasmussen/gdrive/ 
 
-        ```
-        sudo su
-        cd /home/admin/
-        wget https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_linux_amd64.tar.gz 
-        tar -xvzf gdrive_2.1.1_linux_amd64.tar.gz
-        apt install -y musl
-        mv gdrive /usr/local/bin/gdrive
-        gdrive about
-        ```
-        >DICA: Para colar os comandos no terminal, utilize a combinação das teclas `SHIFT` + `INSERT`
+  ```
+  sudo su
+  cd /home/admin/
+  wget https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_linux_amd64.tar.gz 
+  tar -xvzf gdrive_2.1.1_linux_amd64.tar.gz
+  apt install -y musl
+  mv gdrive /usr/local/bin/gdrive
+  gdrive about
+  ```
+  >DICA: Para colar os comandos no terminal, utilize a combinação das teclas `SHIFT` + `INSERT`
 
-   - [ ] Copie o código fornecido no terminal em `Go to the following url in your browser` selecionando com o mouse
-   	 >DICA: Para copiar, basta marcar o endereço no terminal, clicando e arrastando. 
+  - [ ] Copie o código fornecido no terminal em `Go to the following url in your browser` selecionando com o mouse
+  >DICA: Para copiar, basta marcar o endereço no terminal, clicando e arrastando. 
 
-    - [ ] Abra uma nova janela do terminal e digite o comando, e insira a URL copiada entre ""
-          ```
-          chromium "SHIT+INSERT_PARA_COLAR_A_URL_ENTRE_ASPAS"
-          ```
-    - [ ] No navegador, faça o login na sua conta Google
-    - [ ] Caso a página não carrege, talvez seja necessário autorizar o acesso do novo dispositivo, e depois de autorizar, apertar F5 para atualizar a página
-    - [ ] Na tela de autorização do app, clique em `Permitir`
-    - [ ] Copie o código de autorização gerado
-    - [ ] Volte a primeira janela do terminal e insira o código de autorização
+  - [ ] Abra uma nova janela do terminal e digite o comando, e insira a URL copiada entre ""
+  ```
+  chromium "SHIT+INSERT_PARA_COLAR_A_URL_ENTRE_ASPAS"
+  ```
+   - [ ] No navegador, faça o login na sua conta Google
+   - [ ] Caso a página não carrege, talvez seja necessário autorizar o acesso do novo dispositivo, e depois de autorizar, apertar F5 para atualizar a página
+   - [ ] Na tela de autorização do app, clique em `Permitir`
+   - [ ] Copie o código de autorização gerado
+   - [ ] Volte a primeira janela do terminal e insira o código de autorização
     
  Pronto, o gdrive está configurado. 
    
