@@ -197,7 +197,10 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
 #
 
 ### 2.9 - Instale o Google Drive 
-  - [ ] Execute os comandos no terminal para fazer download desta versão do gdrive  https://github.com/prasmussen/gdrive/ 
+  - [ ] Execute os comandos no terminal para fazer download desta versão do gdrive
+  https://github.com/prasmussen/gdrive/ 
+
+>DICA: Para colar os comandos no terminal, utilize a combinação das teclas `SHIFT` + `INSERT`
 
   ```
   sudo su
