@@ -181,9 +181,10 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
 
 ### 2.7 - Ative o Balance of Satoshis 
 
-#### :tv: [Instalação do Balance of Satoshis](https://youtu.be/buj8dTjJ_Ok) (VÍDEO)
 - [ ] Em `Applications`, `Manage Apps` encontre o `Balance of Satoshis` e clique em `Install` para ativar o app. 
 - [ ] Aguarde a instalação que pode demorar um pouco e a configuração será finalizada mais tarde
+
+#### :tv: Vídeo: [Instalação do Balance of Satoshis](https://youtu.be/buj8dTjJ_Ok) 
   
  #
  
