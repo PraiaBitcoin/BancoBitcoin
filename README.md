@@ -28,7 +28,7 @@ Nesta etapa inicial de sua imersão na toca do coelho, o importante é entender 
  
 > Algumas ferramentas estão apenas em inglês, mas esperamos para que elas estejam acessíveis em Português - Brasileiro futuramente. 
  
-## Escolhendo os Equipamentos do Servidor
+## 1.1 - Escolhendo os Equipamentos do Servidor
 Qualquer equipamento disponível poderá servir para sua aprendizagem, mas um **laptop com processador i3, i5 ou i7, com no mínimo 8gb de RAM e bateria funcionando**, certamente é a solução mais viável economicamente e que apresentou melhor custo benefício. 
 
 Você tambem pode utilizar um Raspberry Pi 4 ou computador Desktop PC ou Mac, ou a opção mais comoda, o [myNodeOne](https://mynodebtc.com/products/one) que já vem com o software pré-instalado, por $426 dólares +impostos.
@@ -45,7 +45,7 @@ Além do dispositivo principal, você precisará de:
 
 
  
-## O local e a internet
+## 1.2 - O local e a internet
   - [ ] Encontre um local para instalar o Servidor que tenha certa segurança e esteja protegido.
   - [ ] Providencie assim que possível, um nobreak de 1500va pode ajudar em caso de queda de energia, ou uma bateria de carro estacionária com um inversor. 
   - [ ] Solicite uma conexão de cortesia com IP Fixo para o provedor de Internet local ou configure um DNS dinâmico  
@@ -58,7 +58,7 @@ Além do dispositivo principal, você precisará de:
 >Se pensar em tudo isso não é para você, é possível utilizar uma infraestrutura terceirizada, instalando a distribuição do myNodeBtc na [DigitalOcean](https://digitalocean.com) fazendo o upload de uma imagem personalizada do sistema para rodar um droplet com as aplicações na nuvem, custando aproximadamente $80 dolares por mês. 
 
  
- ## Escolhendo o Software da Distribuição
+ ## 1.3 - Escolhendo o Software da Distribuição
 Existem diversas distribuições similares rodando com a mesma finalidade, sendo possível migrar facilmente a sua carteira lightning para qualquer uma delas e rodar o seu nó onde quiser, mas a base do sistema sempre será a mesma. 
 
 Todas as ferramentas dos clientes Bitcoin & Lighning abaixo, utilizam Debian, Bitcoin Core, Lightning, Specter, Lnbits, BtcPayServer, LndHub, RTL e Electrum. Todos esses softwares são código aberto e estão sob a licença MIT, que significa que basicamente qualquer um pode usá-los, sem qualquer restrição e sem garantias.
@@ -69,9 +69,9 @@ Todas as ferramentas dos clientes Bitcoin & Lighning abaixo, utilizam Debian, Bi
  
 ![Exemplos de distribuições](images/image05.png)
  
-## Configurações do Servidor
+## 2 - Configurações do Servidor
 
-### 1.1 - Preparação da Imagem do Sistema Operacional
+### 2.1 - Preparação da Imagem do Sistema Operacional
 Durante o período experimental, vamos usar uma imagem pronta para o sistema operacional, gravada diretamente no disco de um laptop reciclado, a fim de oferecer uma maior confiabilidade do hardware e uma instalação mais simples possível
 
   - [ ] Insira o disco SSD destinado ao sistema operacional em uma gaveta externa USB e conecte-a a estação de trabalho.
@@ -85,7 +85,7 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
   
 #
 
-### 1.2 - Instalação do Hardware
+### 2.2 - Instalação do Hardware
   - [ ] Abra a parte traseira do Laptop
   - [ ] Instale o SSD que gravou na porta SATA principal.  
   - [ ] Conecte ao laptop o SSD Externo de 1TB com um cabo USB de boa qualidade.
@@ -100,7 +100,7 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
 
 #
 
-### 1.3 - Iniciando o myNodeBtc
+### 2.3 - Iniciando o myNodeBtc
   - [ ] Faça login com o usuário `admin`, senha `bolt` e aguarde o início do navegador. 
   - [ ] No browser que será carregado automaticamente, digite a senha ‘bolt’ para abrir a interface de gerenciamento
   - [ ] Caso o SSD externo de 1tb esteja conectado, o myNode solicitará para formatar o disco.
@@ -112,7 +112,7 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
 
 #
 
-### 1.4 - Configuração do Roteador
+### 2.4 - Configuração do Roteador
   - [ ] Descubra como acessar a interface do seu roteador. 
   - [ ] Altere a senha padrão do roteador.
   - [ ] Desabilite a administração remota pela web.
@@ -129,9 +129,9 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
 
 #
 
-### 1.5 - Configurações da Ligthning
+### 2.5 - Configurações da Ligthning
 
-#### 1.5.1 - Criação da Carteira
+#### 2.5.1 - Criação da Carteira
 Execute os passos abaixo para criar a carteira Lightning associada ao nó:
 
   - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em ` Create Wallet` 
@@ -144,7 +144,7 @@ Execute os passos abaixo para criar a carteira Lightning associada ao nó:
 
 #
 
-#### 1.5.2 - Mudando as configurações da Lightning
+#### 2.5.2 - Mudando as configurações da Lightning
 Altere as configurações da Lightning para iniciar o serviço
   - [ ] Na interface do myNodeBTC, na aba `Lightning`, clique em `Wallet` 
   - [ ] Na página `Lightning Status` na aba `Lightning`, em `Config`, clique em `view/edit` 
@@ -164,7 +164,7 @@ Altere as configurações da Lightning para iniciar o serviço
 
 # 
 
-### 1.6 - Ativando as outras aplicações do MyNodeBTC
+### 2.6 - Ativando as outras aplicações do MyNodeBTC
 
 Após fazer login e a sincronização da blockchain for concluida, abra o browser e acesse a na página inicial da interface do MynodeBtc em `http://localhost` e ative as aplicações abaixo clicando em `Enable`:
 
@@ -179,7 +179,7 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   
 #
 
-### 1.7 - Ative o Balance of Satoshis 
+### 2.7 - Ative o Balance of Satoshis 
 
 #### :tv: [Instalação do Balance of Satoshis](https://youtu.be/buj8dTjJ_Ok) (VÍDEO)
 - [ ] Em `Applications`, `Manage Apps` encontre o `Balance of Satoshis` e clique em `Install` para ativar o app. 
@@ -187,14 +187,14 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   
  #
  
-### 1.8 - Ative o LNDg
+### 2.8 - Ative o LNDg
 - [ ] Em `Applications`, `Manage Apps` encontre o `LNDg` e clique em `Install` para ativar o app. 
 - [ ] Aguarde a instalação que pode demorar um pouco e a configuração será finalizada mais tarde
 
 
 #
 
-### 1.9 - Instale o Google Drive 
+### 2.9 - Instale o Google Drive 
   - [ ] Execute os comandos no terminal para fazer download desta versão do gdrive  https://github.com/prasmussen/gdrive/ 
 
   ```
@@ -216,14 +216,9 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
 gdrive mkdir backup
 *XBX9GXlR6EmbnY1RLVTk5VUtOVkk created*
 ```
-
 #
 
-
-## 2 - Configurações de Backup
-
-
-#### 2.3 - Configure o Backup Frequente dos Arquivos Críticos
+### 2.10 - Configure o Backup Frequente dos Arquivos Críticos
 Arquivos Críticos com backups instantâneos a cada alteração:
 channel.backup
 lnbits.db
@@ -236,7 +231,7 @@ Ngix
 lnd
 bitcoin
 
-#### 2.4 - Bot do Telegram
+### 2.11 -  Bot do Telegram
 Envia notificações das transações e cópias do channel.backup pelo telegram a cada alteração dos estados dos canais. Este arquivo serve para restaurar seus fundos em caso de desastre.
 
   - [ ] Abra o link para configurar o Bot do Telegram https://t.me/BotFather 
