@@ -192,6 +192,7 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
 - [ ] Em `Applications`, `Manage Apps` encontre o `LNDg` e clique em `Install` para ativar o app. 
 - [ ] Aguarde a instalação que pode demorar um pouco e a configuração será finalizada mais tarde
 
+#### :tv: Vídeo: [Instalação do LNDg](https://youtu.be/TXImzUFSE_U)
 
 #
 
@@ -199,8 +200,8 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
   - [ ] Execute os comandos no terminal para fazer download desta versão do gdrive  https://github.com/prasmussen/gdrive/ 
 
   ```
-  su
-  cd ~
+  sudo su
+  cd /home/admin/
   wget https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_linux_amd64.tar.gz 
   tar -xvzf gdrive_2.1.1_linux_amd64.tar.gz
   apt install -y musl
@@ -217,6 +218,8 @@ Após fazer login e a sincronização da blockchain for concluida, abra o browse
 gdrive mkdir backup
 *XBX9GXlR6EmbnY1RLVTk5VUtOVkk created*
 ```
+
+#### :tv: Vídeo: [Instalação do gdrive](https://youtu.be/TXImzUFSE_U)
 #
 
 ### 2.10 - Configure o Backup Frequente dos Arquivos Críticos
