@@ -121,9 +121,9 @@ Durante o período experimental, vamos usar uma imagem pronta para o sistema ope
   - [ ] Ative o firewall e a proteção anti-ddos. Não ative a opção  ping-da-morte. 
   - [ ] Se possível atribua um IP LAN Fixo do Servidor linkado ao seu MAC ADDRESS 
   - [ ] Redirecione as portas que serão ativadas 
-     	- [ ] Lnd: 9735:9735
-    	- [ ] Serviços (MemPol, Explorer, LnBits, BtcPay): 443 -> 49393 (Remap)
-    	- [ ] ElectrumServer: 50002:50002 
+    - [ ] Lnd: 9735:9735
+    - [ ] Serviços (MemPol, Explorer, LnBits, BtcPay): 443 -> 49393 (Remap)
+    - [ ] ElectrumServer: 50002:50002 
 
 >Se não estiver usando um IP fixo externo, configure um serviço de DNS dinâmico, se esta opção estiver disponível em seu roteador.
 
