@@ -7,8 +7,8 @@ Nesta etapa, vamos criar uma uma chave de criptografia GPG associada ao seu e-ma
   sudo su
   gpg --full-generate-key --expert
   ○ Please select what kind of key you want: Your Selection? 1
-  ○ What keysize do you want? 4096
-  ○ What keysize do you want for the subkey? 4096
+  ○ What keysize do you want? 3072
+  ○ What keysize do you want for the subkey? 3072
   ○ Key is valid for? 0 
   ○ Is this correct? Y
   ○ Real Name: Primeiro e Último nome
@@ -16,15 +16,18 @@ Nesta etapa, vamos criar uma uma chave de criptografia GPG associada ao seu e-ma
   ○ Comment: Nome do Seu Experimento
   ○ Change (N)ame, (C)omment (E)mail (O)kay/(Q)uit? O
   ○ Please enter the passphrase to protect your new key: 
-  Crie uma senha forte e anote para salvar no seu gestor de senhas após concluir o procedimento
   ```
+  ***Crie uma senha forte e anote para salvar no seu gestor de senhas após concluir o procedimento***
+  
+   
+- [ ] Anote o ID da assinatura que deve se parecer com esse 2050D19261ADE8E9493FE78F793617911886BBC5
 
-- [ ] Localize a assinatura que gerou executando o comando abaixo, 
+- [ ] Caso não tenha anotado localize a assinatura que gerou executando o comando abaixo, 
   ```
   gpg -k user@email
   ```
-    
-- [ ] Anote o ID da assinatura que deve se parecer com esse 2050D19261ADE8E9493FE78F793617911886BBC5
+  
+- [ ] Faça backup das chaves no seu gestor de senhas
   ```
   gpg --output public.pgp --armor --export ID
   gpg --output private.pgp --armor --export-secret-key ID
@@ -99,3 +102,10 @@ tar tfv /mnt/hdd/BACKUP/nomedearquivosdesaida.tar
 Verifique os arquivos criados no Google Drive
 
 #
+
+Apos decriptografar os arquivos controle e btcpayserver
+```
+cat /caminho/arquivobackupcontrol | docker exec -i $(docker ps -a -q -f "name=postgres_1") psql -U postgres
+
+cat /caminho/arquivobackupbtcpayserver | docker exec -i $(docker ps -a -q -f "name=postgres_1") psql -U postgres
+```
